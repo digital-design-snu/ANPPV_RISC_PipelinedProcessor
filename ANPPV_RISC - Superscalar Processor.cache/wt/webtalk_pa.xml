@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+<!--The data in this file is primarily intended for consumption by Xilinx tools.
+The structure and the elements are likely to change over the next few releases.
+This means code written to parse this file will need to be revisited each subsequent release.-->
+<application name="pa" timeStamp="Sun Aug 14 18:27:56 2016">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="876dd90fbbc1497eb1bb62bac4a44f7b" type="ProjectID"/>
+<property name="ProjectIteration" value="19" type="ProjectIteration"/>
+</section>
+<section name="PlanAhead Usage" visible="true">
+<item name="Project Data">
+<property name="SrcSetCount" value="1" type="SrcSetCount"/>
+<property name="ConstraintSetCount" value="1" type="ConstraintSetCount"/>
+<property name="DesignMode" value="RTL" type="DesignMode"/>
+<property name="SynthesisStrategy" value="Vivado Synthesis Defaults" type="SynthesisStrategy"/>
+<property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
+</item>
+<item name="Java Command Handlers">
+<property name="AutoConnectTarget" value="1" type="JavaHandler"/>
+<property name="EditDelete" value="2" type="JavaHandler"/>
+<property name="EditUndo" value="4" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="8" type="JavaHandler"/>
+<property name="NewProject" value="2" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="2" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="1" type="JavaHandler"/>
+<property name="ProgramDevice" value="1" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="8" type="JavaHandler"/>
+<property name="RefreshDevice" value="1" type="JavaHandler"/>
+<property name="ReportDRC" value="2" type="JavaHandler"/>
+<property name="ReportTimingSummary" value="2" type="JavaHandler"/>
+<property name="RunBitgen" value="15" type="JavaHandler"/>
+<property name="RunImplementation" value="4" type="JavaHandler"/>
+<property name="RunSchematic" value="4" type="JavaHandler"/>
+<property name="RunSynthesis" value="3" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="6" type="JavaHandler"/>
+<property name="SaveProjectAs" value="5" type="JavaHandler"/>
+<property name="ShowConnectivity" value="1" type="JavaHandler"/>
+<property name="ShowView" value="17" type="JavaHandler"/>
+<property name="SimulationClose" value="5" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="211" type="JavaHandler"/>
+<property name="SimulationRestart" value="306" type="JavaHandler"/>
+<property name="SimulationRun" value="70" type="JavaHandler"/>
+<property name="SimulationRunAll" value="20" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="1505" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="3" type="JavaHandler"/>
+<property name="ViewTaskRTLAnalysis" value="2" type="JavaHandler"/>
+<property name="ViewTaskSynthesis" value="1" type="JavaHandler"/>
+<property name="WaveformSaveConfiguration" value="5" type="JavaHandler"/>
+<property name="ZoomIn" value="13" type="JavaHandler"/>
+<property name="ZoomOut" value="31" type="JavaHandler"/>
+</item>
+<item name="Gui Resources Info">
+<property name="PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, Open Hardware Manager" value="1" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="37" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="26" type="TclMode"/>
+</item>
+</section>
+</application>
+</document>

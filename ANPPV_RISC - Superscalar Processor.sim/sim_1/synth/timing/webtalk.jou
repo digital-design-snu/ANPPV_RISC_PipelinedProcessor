@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:27 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Fri Jul 08 16:25:24 2016
+# Process ID: 912
+# Current directory: F:/VHDL/Pipeline Processor Code/8-7-16 V2/8-7-16 V2.sim/sim_1/synth/timing
+# Command line: wbtcv.exe -mode batch -source F:/VHDL/Pipeline Processor Code/8-7-16 V2/8-7-16 V2.sim/sim_1/synth/timing/xsim.dir/TopModule_time_synth/webtalk/xsim_webtalk.tcl -notrace
+# Log file: F:/VHDL/Pipeline Processor Code/8-7-16 V2/8-7-16 V2.sim/sim_1/synth/timing/webtalk.log
+# Journal file: F:/VHDL/Pipeline Processor Code/8-7-16 V2/8-7-16 V2.sim/sim_1/synth/timing\webtalk.jou
+#-----------------------------------------------------------
+source F:/VHDL/Pipeline -notrace

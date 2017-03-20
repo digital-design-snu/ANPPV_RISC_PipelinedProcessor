@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Webtalk v2016.1 (64-bit)
+# SW Build 1538259 on Fri Apr  8 15:45:27 MDT 2016
+# IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
+# Start of session at: Sat Jul 09 22:32:48 2016
+# Process ID: 5844
+# Current directory: C:/Xilinx/8-7-16 V5/Build1/Build1.sim/sim_1/impl/timing
+# Command line: wbtcv.exe -mode batch -source C:/Xilinx/8-7-16 V5/Build1/Build1.sim/sim_1/impl/timing/xsim.dir/TopModule_time_impl/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Xilinx/8-7-16 V5/Build1/Build1.sim/sim_1/impl/timing/webtalk.log
+# Journal file: C:/Xilinx/8-7-16 V5/Build1/Build1.sim/sim_1/impl/timing\webtalk.jou
+#-----------------------------------------------------------
+source C:/Xilinx/8-7-16 -notrace
+invalid command name "%"
+    while executing
+"% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current"
+    (file "C:/Xilinx/8-7-16" line 1)
+INFO: [Common 17-206] Exiting Webtalk at Sat Jul 09 22:32:48 2016...

@@ -1,0 +1,87 @@
+Vivado Simulator 2016.1
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2016.1/bin/unwrapped/win64.o/xelab.exe -wto 02c013e712de424ba13b3ec12d3b8775 --debug all --rangecheck --relax --mt 2 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot TopModule_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 xil_defaultlib.TopModule xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "TopModule_time_impl.sdf", for root module "TopModule".
+INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "TopModule_time_impl.sdf", for root module "TopModule".
+Time Resolution for simulation is 1ps
+Compiling module simprims_ver.LUT6
+Compiling module simprims_ver.LUT4
+Compiling module simprims_ver.x_lut3_mux4
+Compiling module simprims_ver.LUT3
+Compiling module simprims_ver.LUT5
+Compiling module simprims_ver.x_lut2_mux4
+Compiling module simprims_ver.LUT2
+Compiling module simprims_ver.CARRY4
+Compiling module simprims_ver.MUXF7
+Compiling module xil_defaultlib.ALUbasic
+Compiling module xil_defaultlib.ALUModule
+Compiling module xil_defaultlib.AddressSelector1
+Compiling module xil_defaultlib.AddressSelector2
+Compiling module xil_defaultlib.Bubble
+Compiling module simprims_ver.sffsrce_fdre
+Compiling module simprims_ver.FDRE
+Compiling module xil_defaultlib.Buffer1
+Compiling module xil_defaultlib.Buffer2
+Compiling module xil_defaultlib.Buffer3
+Compiling module xil_defaultlib.ControlCodeGenerator2
+Compiling module xil_defaultlib.ControlCodeGenerator3
+Compiling module xil_defaultlib.ControlCodeGenerator4
+Compiling module xil_defaultlib.ControlCodeGenerator1Async
+Compiling module xil_defaultlib.ConditionalBranch
+Compiling module simprims_ver.x_lut1_mux2
+Compiling module simprims_ver.LUT1
+Compiling module xil_defaultlib.FlagRegister
+Compiling module xil_defaultlib.Io_GPIB
+Compiling module simprims_ver.RAMD64E(RAM_ADDRESS_MASK=2'b11,R...
+Compiling module xil_defaultlib.RAM64M_UNIQ_BASE_
+Compiling module xil_defaultlib.RAM64M_HD1
+Compiling module xil_defaultlib.RAM64X1D_UNIQ_BASE_
+Compiling module xil_defaultlib.RAM64X1D_HD2
+Compiling module xil_defaultlib.RAM64M_HD3
+Compiling module xil_defaultlib.RAM64M_HD4
+Compiling module xil_defaultlib.RAM64X1D_HD5
+Compiling module xil_defaultlib.RAM64X1D_HD6
+Compiling module xil_defaultlib.RAM64M_HD7
+Compiling module xil_defaultlib.RAM64M_HD8
+Compiling module xil_defaultlib.RAM64X1D_HD9
+Compiling module xil_defaultlib.RAM64X1D_HD10
+Compiling module xil_defaultlib.RAM64M_HD11
+Compiling module xil_defaultlib.RAM64M_HD12
+Compiling module xil_defaultlib.RAM64X1D_HD13
+Compiling module xil_defaultlib.RAM64X1D_HD14
+Compiling module xil_defaultlib.RAM64M_HD15
+Compiling module xil_defaultlib.RAM64M_HD16
+Compiling module xil_defaultlib.RAM64X1D_HD17
+Compiling module xil_defaultlib.RAM64X1D_HD18
+Compiling module xil_defaultlib.RAM64M_HD19
+Compiling module xil_defaultlib.RAM64M_HD20
+Compiling module xil_defaultlib.RAM64X1D_HD21
+Compiling module xil_defaultlib.RAM64X1D_HD22
+Compiling module xil_defaultlib.RAM64M_HD23
+Compiling module xil_defaultlib.RAM64M_HD24
+Compiling module xil_defaultlib.RAM64X1D_HD25
+Compiling module xil_defaultlib.RAM64X1D_HD26
+Compiling module xil_defaultlib.RAM64M_HD27
+Compiling module xil_defaultlib.RAM64M_HD28
+Compiling module xil_defaultlib.RAM64X1D_HD29
+Compiling module xil_defaultlib.RAM64X1D_HD30
+Compiling module xil_defaultlib.MultiPortMem
+Compiling module xil_defaultlib.OperandDecode1
+Compiling module xil_defaultlib.OperandDecode2
+Compiling module xil_defaultlib.ProgramCounter
+Compiling module simprims_ver.FDRE(INIT=1'b1)
+Compiling module xil_defaultlib.RegisterArray
+Compiling module xil_defaultlib.RegisterFlags
+Compiling module xil_defaultlib.StackPointer
+Compiling module xil_defaultlib.WBModule
+Compiling module simprims_ver.BUFG
+Compiling module simprims_ver.IBUF
+Compiling module simprims_ver.OBUF
+Compiling module xil_defaultlib.TopModule
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot TopModule_time_impl

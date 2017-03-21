@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="12" Path="D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor/ANPPV_RISC_Pipelned_Processor.xpr">
+<Project Version="7" Minor="12" Path="D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="138a9d03b8864f71a8d39b33caa88aa9"/>

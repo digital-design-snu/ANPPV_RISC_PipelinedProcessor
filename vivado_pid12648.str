@@ -1,0 +1,194 @@
+/*
+
+Vivado v2016.1 (64-bit)
+SW Build 1538259 on Fri Apr  8 15:45:27 MDT 2016
+Process ID: 12648
+
+Current time: 	3/21/17 5:19:32 PM IST
+Time zone: 	India Standard Time (Asia/Calcutta)
+
+OS: Windows 10
+Version: 10.0
+Architecture: amd64
+Available processors (cores): 8
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Tahoma,name=Tahoma,style=plain,size=11
+
+Java version: 	1.8.0_66 64-bit
+Java home: 	D:/Xilinx/Vivado/2016.1/tps/win64/jre
+
+User name: 	Paul
+User home directory: C:/Users/Paul
+User working directory: D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor
+User country: 	IN
+User language: 	en
+User locale: 	en_IN
+
+RDI Base root directory: D:/Xilinx/Vivado
+RDI Data directory: D:/Xilinx/Vivado/2016.1/data
+RDI Bin directory: D:/Xilinx/Vivado/2016.1/bin
+
+Vivado preferences path: C:/Users/Paul/AppData/Roaming/Xilinx/Vivado/2016.1/vivado.ini
+Vivado layouts directory: C:/Users/Paul/AppData/Roaming/Xilinx/Vivado/2016.1/layouts
+
+GUI allocated memory:	220 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 533 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// Opening Vivado Project: D:\Paul\Desktop\ANPPV_RISC\ANPPV_RISC_PipelinedProcessor\ANPPV_RISC_Pipelned_Processor.xpr. Version: Vivado v2016.1 
+// bL:g (cv:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 47 MB (+46390kb) [00:00:04]
+// [Engine Memory]: 445 MB (+314833kb) [00:00:04]
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 494 MB (+27907kb) [00:00:04]
+// [Engine Memory]: 528 MB (+10001kb) [00:00:05]
+// [GUI Memory]: 53 MB (+4218kb) [00:00:06]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: open_project D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2016.1/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 544 MB. GUI used memory: 35 MB. Current time: 3/21/17 5:19:34 PM IST
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Project name: ANPPV_RISC_Pipelned_Processor; location: D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor; part: xc7a100tcsg324-1
+dismissDialog("Open Project"); // bL:g (cv:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 24 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1); // z:k (G:JPanel, cv:JFrame)
+// Elapsed time: 15 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), Alu - ALUModule (ALUModule.v)]", 2, true); // z:k (G:JPanel, cv:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), Alu - ALUModule (ALUModule.v)]", 2, true, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click - Node
+// [GUI Memory]: 56 MB (+148kb) [00:00:48]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), CCGA1 - ControlCodeGenerator1Async (ControlCodeGenerator1Async.v)]", 11, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), CCGA1 - ControlCodeGenerator1Async (ControlCodeGenerator1Async.v)]", 11, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+selectCodeEditor("ControlCodeGenerator1Async.v", 477, 206); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 434, 180); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 316, 68); // bH:N (JPanel:JComponent, cv:JFrame)
+// [Engine Memory]: 572 MB (+19011kb) [00:01:07]
+// HMemoryUtils.trashcanNow. Engine heap size: 572 MB. GUI used memory: 38 MB. Current time: 3/21/17 5:20:34 PM IST
+// Elapsed time: 56 seconds
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 59 MB (+465kb) [00:01:57]
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 18 seconds
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 66 MB (+3694kb) [00:02:37]
+// [GUI Memory]: 70 MB (+1475kb) [00:02:57]
+// Elapsed time: 116 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1, true); // z:k (G:JPanel, cv:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1, true, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click - Node
+// [GUI Memory]: 76 MB (+1876kb) [00:04:15]
+selectCodeEditor("TopModule.v", 664, 70); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("TopModule.v", 383, 280); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("TopModule.v", 383, 280); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("TopModule.v", 287, 281, false, false, false, true, false); // bH:N (JPanel:JComponent, cv:JFrame) - Popup Trigger
+selectMenuItem(RDIResource.HInputHandler_FIND_TEXT_IN_CURRENT_FILE, "Find..."); // af:JMenuItem (am:JPopupMenu, cv:JFrame)
+// [GUI Memory]: 80 MB (+812kb) [00:04:43]
+// Elapsed time: 15 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), Bbl - Bubble (Bubble.v)]", 6, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), Bbl - Bubble (Bubble.v)]", 6, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // D:b
+selectCodeEditor("Bubble.v", 668, 286); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 13 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Bubble.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 354, 401); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 85 MB (+923kb) [00:06:44]
+// Elapsed time: 169 seconds
+selectCodeEditor("ControlCodeGenerator1Async.v", 218, 208); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("ControlCodeGenerator1Async.v", 218, 208); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+selectCodeEditor("ControlCodeGenerator1Async.v", 246, 180); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 266, 254); // bH:N (JPanel:JComponent, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// Elapsed time: 30 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ControlCodeGenerator1Async.v", 3); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cv:JFrame)
+// Elapsed time: 42 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1, true); // z:k (G:JPanel, cv:JFrame) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1, true, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click - Node
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "x"); // o:ao (az:f, cv:JFrame)
+// Elapsed time: 13 seconds
+setText(RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, "xwr"); // o:ao (az:f, cv:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "TopModule.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cv:JFrame)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ControlCodeGenerator1Async.v", 1); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cv:JFrame)
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v)]", 1); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), CCG2 - ControlCodeGenerator2 (ControlCodeGenerator2.v)]", 12, false); // z:k (G:JPanel, cv:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopModule (TopModule.v), CCG2 - ControlCodeGenerator2 (ControlCodeGenerator2.v)]", 12, false, false, false, false, false, true); // z:k (G:JPanel, cv:JFrame) - Double Click
+// Elapsed time: 11 seconds
+selectCodeEditor("ControlCodeGenerator2.v", 441, 361); // bH:N (JPanel:JComponent, cv:JFrame)
+// [GUI Memory]: 90 MB (+702kb) [00:12:26]
+// Elapsed time: 1033 seconds
+selectCodeEditor("ControlCodeGenerator2.v", 215, 80); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 149 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "ControlCodeGenerator2.v", 2); // TdiGroup:JideTabbedPane (CodeEditorDocumentPane:DocumentPane, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 357, 349); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 41 seconds
+selectCodeEditor("ControlCodeGenerator1Async.v", 287, 177); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 366, 187); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 382, 204); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 378, 201); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 363, 184); // bH:N (JPanel:JComponent, cv:JFrame)
+// HMemoryUtils.trashcanNow. Engine heap size: 580 MB. GUI used memory: 41 MB. Current time: 3/21/17 5:50:36 PM IST
+// Elapsed time: 69 seconds
+selectCodeEditor("ControlCodeGenerator1Async.v", 350, 346); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 24 seconds
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 404, 346); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 404, 346); // bH:N (JPanel:JComponent, cv:JFrame)
+selectCodeEditor("ControlCodeGenerator1Async.v", 404, 346); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 27 seconds
+selectCodeEditor("ControlCodeGenerator1Async.v", 438, 175); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 14 seconds
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'c'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+typeControlKey((HResource) null, "ControlCodeGenerator1Async.v", 'v'); // bH:N (JPanel:JComponent, cv:JFrame)
+// Elapsed time: 104 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V:JideMenu (CommandMenuBar:CommandBar, cv:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, "Open Recent Project"); // ab:JMenu (JPopupMenu:JComponent, cv:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V:JideMenu (CommandMenuBar:CommandBar, cv:JFrame)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // V:JideMenu (CommandMenuBar:CommandBar, cv:JFrame)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // V:JideMenu (CommandMenuBar:CommandBar, cv:JFrame)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_UPDATE_GRAPH

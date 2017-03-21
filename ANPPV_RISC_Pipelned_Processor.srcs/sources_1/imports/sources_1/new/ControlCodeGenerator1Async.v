@@ -1,14 +1,15 @@
 `timescale 1ns / 1ps
 
 module ControlCodeGenerator1Async(
-    input   [7:0]   opcode, //
-    output          I_PC,   //
-    output          E_R0,   //isolated to CCG1
-    output          ERN,    //isolated to CCG1
-    output          DIPC,   //
-    output          ESP,    //
-    output          X2SP,   //
-    output          XSOD    //
+
+    input   [7:0]   opcode, //   
+    output          I_PC,   // Increment PC
+    output          E_R0,   // Enable R0 :: Used To Detect Bubble Conditions :: isolated to CCG1 :: Decode Once Pass on
+    output          ERN,    // Enable RN :: Used To Detect Bubble Conditions :: isolated to CCG1 :: Decode Once Pass on
+    output          DIPC,   // Double Increment PC
+    output          ESP,    // Enable SP :: Used To Detect Bubble Conditions :: isolated to CCG1 
+    output          X2SP,   // The Ghost of ESP :: ref CCG2 :: Decode Once Pass on
+    output          XSOD    // The Ghost of SOD :: ref CCG2 :: Decode Once Pass on
     );
     reg [6:0]   controlBits;
     

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1471179057">
-  <File Type="RDS-PROPCONSTRS" Name="TopModule_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="TopModule.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="TopModule_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="TopModule.vds"/>
   <File Type="RDS-UTIL" Name="TopModule_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="TopModule_utilization_synth.pb"/>

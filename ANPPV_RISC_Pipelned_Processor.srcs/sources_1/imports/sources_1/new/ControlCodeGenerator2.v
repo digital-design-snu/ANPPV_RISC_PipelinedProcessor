@@ -4,21 +4,21 @@ module ControlCodeGenerator2(
         input           clk,
         input           BB,     //Insert bubble before  
         input   [7:0]   opcode, //opcode from opcode buffer
-        output          BB2,    //
+        output          BB2,    //Insert bubble the next cycle
         output          ER0,    //Enable R0
         output          ERN,    //Enable RN    
-        output          XR0,    //
-        output          SOD,    //
+        output          XR0,    //Load R0 from 4th stage 
+        output          SOD,    //Select OD
         output          ISP,    //Increment SP
         output          ESP,    //Enable SP
         output          EIP,    //Enable Input
         output          LPC,    //Load PC
         output          EFL,    //Enable Flag :: Flag Compare for conditional branch
-        output          FLR0,   //
-        output          XRN,    //
+        output          FLR0,   //Flag R0 :: find out why we need it :: we used it for operand forward
+        output          XRN,    //Load RN from 4th stage
         output          LSP,    //This bit is useless please remove this shit :: sorry for bad language
-        output          X4SP,   //
-        output          XWR     //     
+        output          X4SP,   //Load SP from 4th stage
+        output          XWR     //WR from 4th stage
     );
     
     reg [14:0] controlBits;

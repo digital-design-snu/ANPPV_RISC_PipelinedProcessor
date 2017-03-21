@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
 module ControlCodeGenerator1Async(
-    input   [7:0]   opcode, //   
+    input   [7:0]   opcode, //
     output          I_PC,   //
     output          E_R0,   //isolated to CCG1
     output          ERN,    //isolated to CCG1
     output          DIPC,   //
     output          ESP,    //
-    output          X2SP,   //  
+    output          X2SP,   //
     output          XSOD    //
     );
     reg [6:0]   controlBits;

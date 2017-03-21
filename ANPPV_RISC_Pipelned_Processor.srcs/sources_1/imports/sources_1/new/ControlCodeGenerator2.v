@@ -1,10 +1,24 @@
 `timescale 1ns / 1ps
 
 module ControlCodeGenerator2(
-        input           clk,BB,
-        input   [7:0]   opcode,
-        output BB2,ER0,ERN,XR0,SOD,ISP,ESP,EIP,LPC,EFL,FLR0,XRN,LSP,X4SP,XWR
-        
+        input           clk,
+        input           BB,     //Insert bubble before  
+        input   [7:0]   opcode, //opcode from opcode buffer
+        output          BB2,    //
+        output          ER0,    //Enable R0
+        output          ERN,    //Enable RN    
+        output          XR0,    //
+        output          SOD,    //
+        output          ISP,    //Increment SP
+        output          ESP,    //Enable SP
+        output          EIP,    //Enable Input
+        output          LPC,    //Load PC
+        output          EFL,    //Enable Flag :: Flag Compare for conditional branch
+        output          FLR0,   //
+        output          XRN,    //
+        output          LSP,    //This bit is useless please remove this shit :: sorry for bad language
+        output          X4SP,   //
+        output          XWR     //     
     );
     
     reg [14:0] controlBits;

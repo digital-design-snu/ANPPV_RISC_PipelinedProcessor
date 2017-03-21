@@ -1,19 +1,24 @@
 `timescale 1ns / 1ps
 
 module ALUModule(   
-    output      [7:0]   AluOut,
-    output      [3:0]   flagArray,
-    input 			    Cin,
-    input       [2:0]   OpcodeCCG4,           
-    input 		[7:0] 	S_AF,   
-    input       [7:0]   Buffer21,
-    input       [7:0]   Buffer22,
-    input               XR0,
-    input               LR0,ER0,LRN,ERN,FLRN, //Er0_CCG2,LR0_CCG4,LRN_CCG4,ERN_CCG4,FLRN_CCG4
-    input      [7:0]    OF,
-    input               SOD,
+    output      [7:0]   AluOut,     //                  
+    output      [3:0]   flagArray,  //
+    input 			    Cin,        //           
+    input       [2:0]   OpcodeCCG4, //          
+    input 		[7:0] 	S_AF,       //    
+    input       [7:0]   Buffer21,   //
+    input       [7:0]   Buffer22,   //    
+    input               XR0,        //Er0_CCG2
+    input               LR0,        //LR0_CCG4
+    input               ER0,        //
+    input               LRN,        //LRN_CCG4
+    input               ERN,        //ERN_CCG4
+    input               FLRN,       //FLRN_CCG4
+    input      [7:0]    OF,         //
+    input               SOD,        //
     input               SAL         //SAL CCG3
     );
+    
     wire [7:0] Out;
     wire OFALU = ((LR0&&ER0) || (LRN&&ERN&&FLRN)|| (LRN && ER0 && (OpcodeCCG4==3'b000)/*FLRN*/)||(LR0 && ERN && (S_AF[2:0]==3'b000))); 
     wire [7:0] AIN = (OFALU)?OF:Buffer22;     

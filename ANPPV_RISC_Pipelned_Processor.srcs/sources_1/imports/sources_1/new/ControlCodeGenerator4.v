@@ -1,10 +1,18 @@
 `timescale 1ns / 1ps
 
 module ControlCodeGenerator4(
-        input clk,
-        input FL,
-        input   [7:0]   opcode,
-        output WR,FLRN,LRN,LR0,LSP,DSP_out,LOP,ERN,EFL
+        input           clk,        // GLOBAL Clock
+        input           FL,         // Selected Flag
+        input   [7:0]   opcode,     // From Buffer 34 Opcode Buffer
+        output          WR,         // WR :: Write To Memory
+        output          FLRN,       // FLRN ? :: This signal is not being used any where
+        output          LRN,        // Load RN
+        output          LR0,        // Load R0
+        output          LSP,        // Load SP
+        output          DSP_out,    // Pass Through SP -1 as the output of the stack pointer 
+        output          LOP,        // Load Output registers
+        output          ERN,        // Enable RN for Write Back
+        output          EFL         // Modifies SP ath the event of a Condidional branch 
     );
     wire DSP,ISP,WR_out;
     reg FL_out;

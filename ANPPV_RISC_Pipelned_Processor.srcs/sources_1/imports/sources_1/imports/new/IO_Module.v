@@ -1,29 +1,29 @@
 `timescale 1ns / 1ps
 
 module Io_GPIB(
-    input Eip,
-    input Lop,
-    input Clk,
-    input [2:0] ioSel_RD,
-    input [2:0] ioSel_WB,
-    output [7:0] io0,
-    output [7:0] io1,
-    output [7:0] io2,
-    output [7:0] io3,
-    output [7:0] io4,
-    output [7:0] io5,
-    output [7:0] io6,
-    output [7:0] io7,  
-    input [7:0] io0I,
-    input [7:0] io1I,
-    input [7:0] io2I,
-    input [7:0] io3I,
-    input [7:0] io4I,
-    input [7:0] io5I,
-    input [7:0] io6I,
-    input [7:0] io7I,  
-    input [7:0] WriteOutputs,
-    output [7:0] ReadInputs  
+    input           Eip,          // Read Input Control Bit  ::  CCG 2
+    input           Lop,          // Load Output Control Bit ::  CCG 4
+    input           Clk,          // Global Clock
+    input   [2:0]   ioSel_RD,     // <Pn> Port Select Input :: Stage 2 :: Stage 2 opcode Bfr
+    input   [2:0]   ioSel_WB,     // <Pn> Port Select Output:: Stage 4 :: Stage 4 opcode Bfr
+    output  [7:0]   io0,          // Output Port 0
+    output  [7:0]   io1,          // Output Port 1
+    output  [7:0]   io2,          // Output Port 2
+    output  [7:0]   io3,          // Output Port 3
+    output  [7:0]   io4,          // Output Port 4
+    output  [7:0]   io5,          // Output Port 5
+    output  [7:0]   io6,          // Output Port 6
+    output  [7:0]   io7,          // Output Port 7
+    input   [7:0]   io0I,         // Input Port 0
+    input   [7:0]   io1I,         // Input Port 1
+    input   [7:0]   io2I,         // Input Port 2
+    input   [7:0]   io3I,         // Input Port 3
+    input   [7:0]   io4I,         // Input Port 4
+    input   [7:0]   io5I,         // Input Port 5
+    input   [7:0]   io6I,         // Input Port 6
+    input   [7:0]   io7I,         // Input Port 7
+    input   [7:0]   WriteOutputs, // Data Input From Write Back Stage
+    output  [7:0]   ReadInputs    // Data Output Path to the Operand Decode Stage
     );
     
     

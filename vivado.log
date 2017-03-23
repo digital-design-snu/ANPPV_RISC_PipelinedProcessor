@@ -2,19 +2,22 @@
 # Vivado v2016.1 (64-bit)
 # SW Build 1538259 on Fri Apr  8 15:45:27 MDT 2016
 # IP Build 1537824 on Fri Apr  8 04:28:57 MDT 2016
-# Start of session at: Tue Mar 21 17:19:22 2017
-# Process ID: 12648
-# Current directory: D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10040 D:\Paul\Desktop\ANPPV_RISC\ANPPV_RISC_PipelinedProcessor\ANPPV_RISC_Pipelned_Processor.xpr
-# Log file: D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/vivado.log
-# Journal file: D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor\vivado.jou
+# Start of session at: Wed Mar 22 22:56:29 2017
+# Process ID: 528
+# Current directory: N:/Project Files/ProcessorDesign2016_17/ANPPV_RISC_PipelinedProcessor
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10616 N:\Project Files\ProcessorDesign2016_17\ANPPV_RISC_PipelinedProcessor\ANPPV_RISC_Pipelned_Processor.xpr
+# Log file: N:/Project Files/ProcessorDesign2016_17/ANPPV_RISC_PipelinedProcessor/vivado.log
+# Journal file: N:/Project Files/ProcessorDesign2016_17/ANPPV_RISC_PipelinedProcessor\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr
-INFO: [Project 1-313] Project file moved from 'D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor' since last save.
+open_project {N:/Project Files/ProcessorDesign2016_17/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr}
+INFO: [Project 1-313] Project file moved from 'D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2016.1/data/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'N:/Programs/Xilinx/Vivado/2016.1/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 695.313 ; gain = 90.902
 update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 23 00:29:57 2017...

@@ -1,18 +1,20 @@
 `timescale 1ns / 1ps
 
 module ControlCodeGenerator3(
-    input [7:0]opcode,   //from buf 1-2
-    input E_R0_CCG2,     //CCG2
-    input E_RN_CCG2,     //CCG2
-    output BB3,
-    output reg E_R0,
-    output reg E_RN,
-    output reg XR0,
-    output reg SOD,
-    output EFL,S_AL,LPC,
-    input clk,
-    input XR0_CCG2,
-    input SOD_CCG2
+    input clk,          //System wide clock
+    input [7:0]opcode,  //opcode from opcode buffer
+    input E_R0_CCG2,    //Enable R0 from second stage
+    input E_RN_CCG2,    //Enable RN from second stage
+    input XR0_CCG2,     //Load R0 from 4th stage :: from CCG2
+    input SOD_CCG2,     //Select OD from 2nd stage
+    output BB3,         //Hold the first stage
+    output reg E_R0,    //Enable R0 :: passing it through from CCG2
+    output reg E_RN,    //Enable RN :: passing it through from CCG2
+    output reg XR0,     //Load R0 from 4th stage :: passing it through from CCG2
+    output reg SOD,     //Select OD :: passing it through from CCG2111
+    output EFL,         //Enable Flag
+    output S_AL,        //Select ALU Output to go to 4th stage
+    output LPC          //Load PC
     );
     reg [3:0] controlBits;
     

@@ -2,7 +2,7 @@
 
 module ControlCodeGenerator1Async(
 
-    input   [7:0]   opcode, //   
+    input   [7:0]   opcode, // opcode  
     output          I_PC,   // Increment PC
     output          E_R0,   // Enable R0 :: Used To Detect Bubble Conditions :: isolated to CCG1 :: Decode Once Pass on
     output          ERN,    // Enable RN :: Used To Detect Bubble Conditions :: isolated to CCG1 :: Decode Once Pass on

@@ -1,38 +1,52 @@
 `timescale 1ns/1ps
 
 module StackPointer(
-    input			clk,
-    input	      	ISP,
-    input           DSP,
-    input           LSP,
+    /*******************INPUTS PORTS**********************************************/
+    input			clk,    // System Wide clock
+    input	      	ISP,    // Increment SP
+    input           DSP,    // Decrement SP
+    input           LSP,    // Load SP 
+    
+    /*******************BEGIN COMMENT********************************************/
     //ESP is not required here. only issued by the CCG to some select logic
-    input   [7:0]   SPIn,    //Buffer32
-    output  [7:0]   SPOut //ALUmux, AS2 and AS
+    /*******************END COMMENT**********************************************/
+    
+    input   [7:0]   SPIn,   // SP Input LOAD Address :: Address to be written into SP :: FROM Buffer3_2
+    /*******************END INPUTS PORTS*****************************************/
+    
+    /*******************OUTPUT PORTS*********************************************/
+    output  [7:0]   SPOut   // SP Output :: Final Output Address of SP Module :: TO ALUmux, AS2 and AS
+    /*******************END OUTPUT PORTS*****************************************/
     );
     
-    reg [7:0] SPReg;
+    /***************REGISTERS***************************/
+    reg [7:0] SPReg;        // SP Register :: Contains SP Address
+    /***************END REGISTERS***********************/
     
+    /***************INITIALISATION**********************/
     initial
-        SPReg = 8'h00;
+        SPReg = 8'h00;      // SPReg initialised to 0x00
+    /***************END INITIALISATION*****************/
     
-    //The Line Below Acomodate value pass throughs
-    assign SPOut = DSP?(SPReg-1):(LSP? SPIn :SPReg);
+    assign SPOut = DSP?(SPReg-1):(LSP? SPIn :SPReg);    // Select SPOut based on DSP and LSP :: The Line Below Acomodate value pass throughs
     
     // the Code Below acomodates the assignment cases
     always @(posedge clk)
     begin
-        if(LSP && ISP)
-            SPReg <= SPIn +1;  //ISP =1 
-        else if(DSP && ISP)
-            SPReg <= SPReg;  //ISP =1 
-        else if(LSP)
-            SPReg <= SPIn;      //LSP = 1
-        else if(ISP)
-            SPReg <= SPReg +1;  //ISP =1 
-        else if(DSP)
-            SPReg <= SPReg - 1; //DSP = 1        
-        else
-            SPReg <= SPReg;// No Stack operation
+    
+        // SPReg ASSIGNMENT CASES
+        if(LSP && ISP)                              // CASE :: LSP == 1 AND ISP == 1 
+            SPReg <= SPIn +1;                       // OPERATION :: Increment SPReg by 1
+        else if(DSP && ISP)                         // CASE :: DSP == 1 AND ISP == 1
+            SPReg <= SPReg;                         // OPERATION :: HOLD SPReg Value :: No Stack Operation    
+        else if(LSP)                                // CASE :: LSP == 1 
+            SPReg <= SPIn;                          // OPERATION :: WRITE SPReg <- SPIn :: SPIn into SPReg Value    
+        else if(ISP)                                // CASE :: ISP == 1 
+            SPReg <= SPReg +1;                      // OPERATION :: Increment SPReg by 1
+        else if(DSP)                                // CASE :: DSP == 1
+            SPReg <= SPReg - 1;                     // OPERATION :: Decrement SPReg by 1
+        else                                        // CASE :: DEFAULT
+            SPReg <= SPReg;                         // OPERATION :: HOLD SPReg Value :: No Stack Operation
     end                                         
 
 endmodule

@@ -50,12 +50,12 @@ set rc [catch {
   create_msg_db init_design.pb
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir C:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.cache/wt [current_project]
-  set_property parent.project_path C:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.xpr [current_project]
-  set_property ip_repo_paths c:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.cache/ip [current_project]
-  set_property ip_output_repo c:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.cache/ip [current_project]
-  add_files -quiet C:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.runs/synth_1/TopModule.dcp
-  read_xdc C:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.srcs/constrs_1/imports/VHDL/Nexys4_Master.xdc
+  set_property webtalk.parent_dir {/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.cache/wt} [current_project]
+  set_property parent.project_path {/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.xpr} [current_project]
+  set_property ip_repo_paths {{/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.cache/ip}} [current_project]
+  set_property ip_output_repo {{/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.cache/ip}} [current_project]
+  add_files -quiet {{/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.runs/synth_1/TopModule.dcp}}
+  read_xdc {{/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.srcs/constrs_1/imports/VHDL/Nexys4_Master.xdc}}
   link_design -top TopModule -part xc7a100tcsg324-1
   write_hwdef -file TopModule.hwdef
   close_msg_db -file init_design.pb

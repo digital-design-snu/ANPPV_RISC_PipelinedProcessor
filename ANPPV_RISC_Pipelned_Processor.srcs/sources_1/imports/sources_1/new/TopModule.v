@@ -1,13 +1,15 @@
 `timescale 1ns / 1ps
 
 module TopModule(
-    input clk,
-    input  [15:0] sw,
-    output [15:0] led
+    input           clk,
+    input  [15:0]   sw,
+    output [15:0]   led
     );
     // Control Code Wire Instantiations start
 
-	wire	IPC, DIPC,ER0CCG1;
+	wire	IPC;
+    wire    DIPC;
+    wire    ER0CCG1;
 	wire	BB2, ER0,  ERN, XR0, SOD, ISP, ESP, EIP, LPC2,LPC3, FLR0;  //OFOF operand forward stage2
 	wire	EFL, EFL2, SAL,ER0_CCG3,ERN_CCG3;   					       //ALUOF operand forward stage3
 	wire	WR, FLRN, LRN, LR0, LSP, DSP, LOP;
@@ -48,12 +50,8 @@ module TopModule(
     //wire [7:0] PCBuffer1_AS1;
     //wire [7:0] OpcodeBuffer1_CCG2;
     wire [7:0] OpcodeBuffer1_Out;
-    //wire [7:0] OpcodeBuffer2_FL;
+    
     wire [7:0] SP_Out;   // AS1,AS2,OperandDecode1
-	//wire [7:0] PCBuffer2_PCBuffer3;
-    //wire [7:0] PCBuffer2_ConditionalBranch;
-    //wire [7:0] Buffer21_ConditionalBranch;
-    //wire [7:0] Buffer21_ALUModule;
     wire [7:0] Buffer21_Out;
     wire [7:0] Buffer22_ALUModule;
     wire [7:0] ConditionalBranch_Branch;

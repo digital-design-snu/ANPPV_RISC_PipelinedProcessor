@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
 module FlagRegister(
-        input           clk,
-        input   [2:0]   opCode, //From IR
-        input   [3:0]   inArray,//From ALU
-        input           S_AL,   //Control bit, meaningful operation
-        output          carry,           //Output to ALU
-        output          FL               //Output to Control Code Generator
+        input           clk,        // Global Clock
+        input   [2:0]   opCode,     // From Buffer 2 opcode Register
+        input   [3:0]   inArray,    // Real Time Flag Bits from the ALU
+        input           S_AL,       // Control bit CCG3, meaningful operation
+        output          carry,      // Return Carry Bit to ALU
+        output          FL          // Output to FL Logic Handler
     );  
     reg [7:0]   flagArray;
     

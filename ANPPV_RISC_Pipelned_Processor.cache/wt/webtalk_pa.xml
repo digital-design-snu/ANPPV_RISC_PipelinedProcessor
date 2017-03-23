@@ -3,10 +3,14 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
+<<<<<<< HEAD
 <application name="pa" timeStamp="Thu Mar 23 00:29:52 2017">
+=======
+<application name="pa" timeStamp="Thu Mar 23 22:23:29 2017">
+>>>>>>> 37da0fa1131fefdefb568c610afe1b00b869208d
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="876dd90fbbc1497eb1bb62bac4a44f7b" type="ProjectID"/>
-<property name="ProjectIteration" value="19" type="ProjectIteration"/>
+<property name="ProjectIteration" value="20" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -20,16 +24,18 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AutoConnectTarget" value="1" type="JavaHandler"/>
 <property name="EditDelete" value="2" type="JavaHandler"/>
 <property name="EditUndo" value="4" type="JavaHandler"/>
+<property name="FilePrintCmdHandler" value="1" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="8" type="JavaHandler"/>
 <property name="NewProject" value="2" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="2" type="JavaHandler"/>
+<property name="OpenProject" value="2" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="1" type="JavaHandler"/>
 <property name="ProgramDevice" value="1" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="8" type="JavaHandler"/>
 <property name="RefreshDevice" value="1" type="JavaHandler"/>
 <property name="ReportDRC" value="2" type="JavaHandler"/>
 <property name="ReportTimingSummary" value="2" type="JavaHandler"/>
-<property name="RunBitgen" value="15" type="JavaHandler"/>
+<property name="RunBitgen" value="16" type="JavaHandler"/>
 <property name="RunImplementation" value="4" type="JavaHandler"/>
 <property name="RunSchematic" value="4" type="JavaHandler"/>
 <property name="RunSynthesis" value="3" type="JavaHandler"/>
@@ -50,6 +56,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ZoomIn" value="13" type="JavaHandler"/>
 <property name="ZoomOut" value="31" type="JavaHandler"/>
 </item>
+<<<<<<< HEAD
 <item name="Gui Resources Info">
 <property name="ALUModule.v, 123, 127" value="1" type="GuiResourceData"/>
 <property name="ALUModule.v, 190, 165" value="1" type="GuiResourceData"/>
@@ -157,6 +164,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="BatchMode" value="0" type="BatchMode"/>
 <property name="TclMode" value="84" type="TclMode"/>
 </item>
+=======
+>>>>>>> 37da0fa1131fefdefb568c610afe1b00b869208d
 </section>
 </application>
 </document>

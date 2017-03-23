@@ -1,99 +1,106 @@
 `timescale 1ns / 1ps
 
 module TopModule(
-    input clk,
-    input  [15:0] sw,
-    output [15:0] led
+    input clk,            // System Clock
+    input  [15:0] sw,     // Switches on FPGA
+    output [15:0] led     // LED on FPGA
     );
-    // Control Code Wire Instantiations start
+  
 
-	wire	IPC, DIPC,ER0CCG1;
-	wire	BB2, ER0,  ERN, XR0, SOD, ISP, ESP, EIP, LPC2,LPC3, FLR0;  //OFOF operand forward stage2
-	wire	EFL, EFL2, SAL,ER0_CCG3,ERN_CCG3;   					       //ALUOF operand forward stage3
-	wire	WR, FLRN, LRN, LR0, LSP, DSP, LOP;
-	wire    BB,BB3,XRN,ERNCCG1;
-	wire    LSPCCG2,ESPCCG1;
-    wire    ERNCCG4;
-    wire    CCG1_BubbleX, CCG2_BubbleX, CCG1_BubbleXSOD, CCG2_BubbleXWR;
-    // Control Code Wire Instantiations end
+  /*Control Code Wire Instantiations start*/
+  wire  IPC;
+  wire  DIPC;
+  wire  ER0CCG1;
+  wire  BB2;
+  wire  ER0;
+  wire  ERN;
+  wire  XR0;
+  wire  SOD;
+  wire  ISP;
+  wire  ESP;
+  wire  EIP;
+  wire  LPC2;
+  wire  LPC3;
+  wire  FLR0;  //OFOF operand forward stage2
+  wire  EFL; 
+  wire  EFL2;
+  wire  SAL;
+  wire  ER0_CCG3;
+  wire  ERN_CCG3;                    //ALUOF operand forward stage3
+  wire  WR;
+  wire  FLRN;
+  wire  LRN;
+  wire  LR0;
+  wire  LSP;
+  wire  DSP;
+  wire  LOP;
+  wire  BB;
+  wire  BB3;
+  wire  XRN;
+  wire  ERNCCG1;
+  wire  LSPCCG2;
+  wire  ESPCCG1;
+  wire  ERNCCG4;
+  wire  CCG1_BubbleX;
+  wire  CCG2_BubbleX;
+  wire  CCG1_BubbleXSOD;
+  wire  CCG2_BubbleXWR;
+  /*Control Code Wire Instantiations end*/
 
-    // Signal Wire Instantiations start
-	//hardcoded wires
-    wire [7:0] PC_Mem1;
-	wire [7:0] Mem1_IR;
-	wire [7:0] IR_AsyncDecode;
-     //wire [7:0] IR_CCG2;
-     // wire [7:0] IR_CCG1;
-     // wire [7:0] IR_OpcodeBuffer1;
-    wire [7:0] IR_Out; 
-    wire [7:0] PC_PCBuffer1; 
 
-	wire [7:0] Mem2_OperandDecode1;
-	wire [7:0] AS1_Mem2;
-	//wire [7:0] SP_OperandDecode1;
-	wire [7:0] IO_OperandDecode1;
-	//wire [7:0] R0_OperandDecode1;
-	wire [7:0] Buffer31_WB;
-	wire [7:0] OF_OperandDecode1 = Buffer31_WB;
-	wire [7:0] RA_OperandDecode2;
-	wire [7:0] OF_OperandDecode2 = Buffer31_WB;
-	//wire [7:0] OperandDecode1_Branch;
-	wire [7:0] OperandDecode1_Buffer21;
-	wire [7:0] OperandDecode2_Buffer22;
-	//wire [7:0] PCBuffer1_PCBuffer2;
-    //wire [7:0] OpCodeBuffer1_OpcodeBuffer2;
-    wire [7:0] OF_AS1 = Buffer31_WB;
-    //wire [7:0] R0_AS1;
-    //wire [7:0] SP_AS1;
-    //wire [7:0] PCBuffer1_AS1;
-    //wire [7:0] OpcodeBuffer1_CCG2;
-    wire [7:0] OpcodeBuffer1_Out;
-    //wire [7:0] OpcodeBuffer2_FL;
-    wire [7:0] SP_Out;   // AS1,AS2,OperandDecode1
-	//wire [7:0] PCBuffer2_PCBuffer3;
-    //wire [7:0] PCBuffer2_ConditionalBranch;
-    //wire [7:0] Buffer21_ConditionalBranch;
-    //wire [7:0] Buffer21_ALUModule;
-    wire [7:0] Buffer21_Out;
-    wire [7:0] Buffer22_ALUModule;
-    wire [7:0] ConditionalBranch_Branch;
-    wire [7:0] ALUModule_Buffer31;
-    wire [3:0] ALUModule_FlagReg;
-    wire       FlagReg_Carry_ALUModule;
-    //wire [7:0] OpcodeBuffer2_ALUModule;
-    wire       FlagReg_Out;
+  /*Signal Wire Instantiations start*/
+  
+  /*hardcoded wires*/
+  wire [7:0] PC_Mem1;
+  wire [7:0] Mem1_IR;
+  wire [7:0] IR_AsyncDecode;
+  wire [7:0] IR_Out; 
+  wire [7:0] PC_PCBuffer1; 
+
+  wire [7:0] Mem2_OperandDecode1;
+  wire [7:0] AS1_Mem2;
+  wire [7:0] IO_OperandDecode1;
+  wire [7:0] Buffer31_WB;
+  wire [7:0] OF_OperandDecode1 = Buffer31_WB;
+  wire [7:0] RA_OperandDecode2;
+  wire [7:0] OF_OperandDecode2 = Buffer31_WB;
+  wire [7:0] OperandDecode1_Buffer21;
+  wire [7:0] OperandDecode2_Buffer22;
+  wire [7:0] OF_AS1 = Buffer31_WB;
+  wire [7:0] OpcodeBuffer1_Out;
+  wire [7:0] SP_Out;   // AS1,AS2,OperandDecode1
+  wire [7:0] Buffer21_Out;
+  wire [7:0] Buffer22_ALUModule;
+  wire [7:0] ConditionalBranch_Branch;
+  wire [7:0] ALUModule_Buffer31;
+  wire [3:0] ALUModule_FlagReg;
+  wire       FlagReg_Carry_ALUModule;
+  wire       FlagReg_Out;
   
     
-    //wire [7:0] OpcodeBuffer2_OpcodeBuffer3;
-    //wire       ERN_CCG4;
-    //wire [7:0] OpcodeBuffer2_CCG3;
-  
-    wire [7:0] PCBuffer3_WB;
+  wire [7:0] PCBuffer3_WB;
     
-	wire [7:0] Output; 
-	wire [7:0] OFALU_ALUModule = Buffer31_WB;
-    //wire [7:0] R0_AS2;
-    //wire [7:0] SP_AS2; 
-    wire [7:0] AS2_Mem3;
-    //wire [7:0] OPcodeBuffer3_WB;
-    //wire [7:0] OpcodeBuffer3_CCG4;
-    wire [7:0] OpcodeBuffer2_Out;
-    wire [7:0] OpcodeBuffer3_Out;
-    wire RegFL_FLRN2;
-    wire RegFL_FLRN3;
-    wire [7:0] R0_Out;
-    wire [7:0] RN_Out;
-    wire [7:0] PCBuffer1_Out;
-    wire [7:0] PCBuffer2_Out;
-    wire XR0_CCG3;
-    wire SOD_CCG3;
-//hardcoded wires end
-    
-    assign  led [7:0] = PCBuffer2_Out;
-    
-    // Signal Wire Instantiations end
+  wire [7:0] Output; 
+  wire [7:0] OFALU_ALUModule = Buffer31_WB;
+  wire [7:0] AS2_Mem3;
+  wire [7:0] OpcodeBuffer2_Out;
+  wire [7:0] OpcodeBuffer3_Out;
+  wire RegFL_FLRN2;
+  wire RegFL_FLRN3;
+  wire [7:0] R0_Out;
+  wire [7:0] RN_Out;
+  wire [7:0] PCBuffer1_Out;
+  wire [7:0] PCBuffer2_Out;
+  wire XR0_CCG3;
+  wire SOD_CCG3;
 
-    // Module instantiations Start
+  /*hardcoded wires end*/
+    
+  assign  led [7:0] = PCBuffer2_Out;
+    
+  /*Signal Wire Instantiations end*/
+
+  /*Module instantiations Start*/
     
 ALUModule           Alu(
        .AluOut(ALUModule_Buffer31),

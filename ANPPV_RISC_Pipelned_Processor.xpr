@@ -3,19 +3,23 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
+<<<<<<< HEAD
 <Project Version="7" Minor="12" Path="N:/Project Files/ProcessorDesign2016_17/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr">
+=======
+<Project Version="7" Minor="12" Path="/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.xpr">
+>>>>>>> 37da0fa1131fefdefb568c610afe1b00b869208d
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="138a9d03b8864f71a8d39b33caa88aa9"/>
     <Option Name="Part" Val="xc7a100tcsg324-1"/>
     <Option Name="CompiledLibDir" Val="$PCACHEDIR/compile_simlib"/>
     <Option Name="CompiledLibDirXSim" Val=""/>
-    <Option Name="CompiledLibDirModelSim" Val="C:/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/modelsim"/>
-    <Option Name="CompiledLibDirQuesta" Val="C:/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/questa"/>
-    <Option Name="CompiledLibDirIES" Val="C:/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/ies"/>
-    <Option Name="CompiledLibDirVCS" Val="C:/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/vcs"/>
-    <Option Name="CompiledLibDirRiviera" Val="C:/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/riviera"/>
-    <Option Name="CompiledLibDirActivehdl" Val="C:/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/activehdl"/>
+    <Option Name="CompiledLibDirModelSim" Val="/opt/Xilinx/Vivado/2016.1/bin/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/modelsim"/>
+    <Option Name="CompiledLibDirQuesta" Val="/opt/Xilinx/Vivado/2016.1/bin/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/questa"/>
+    <Option Name="CompiledLibDirIES" Val="/opt/Xilinx/Vivado/2016.1/bin/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/ies"/>
+    <Option Name="CompiledLibDirVCS" Val="/opt/Xilinx/Vivado/2016.1/bin/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/vcs"/>
+    <Option Name="CompiledLibDirRiviera" Val="/opt/Xilinx/Vivado/2016.1/bin/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/riviera"/>
+    <Option Name="CompiledLibDirActivehdl" Val="/opt/Xilinx/Vivado/2016.1/bin/Users/prasanna/Desktop/Working 11-7-2016/Xilinx/8-7-16 V5/Build1/Build1.cache/compile_simlib/activehdl"/>
     <Option Name="BoardPart" Val=""/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
@@ -322,9 +326,6 @@
     </Simulator>
     <Simulator Name="Riviera">
       <Option Name="Description" Val="Riviera-PRO Simulator"/>
-    </Simulator>
-    <Simulator Name="ActiveHDL">
-      <Option Name="Description" Val="Active-HDL Simulator"/>
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">

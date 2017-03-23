@@ -1,14 +1,14 @@
 `timescale 1ns / 1ps
 
  module MultiPortMem(
-    input [7:0]addressInst,     //Instruction Fetch address input
-    input [7:0]addressOper,     //Operand Fetch address input
-    input [7:0]addressWb,       //WriteBack address input
-    input [7:0]dataWb,          //WriteBack data
-    output [7:0]dataInst,        //
-    output [7:0]dataOper,
-    input writeEn,
-    input clk
+    input   [7:0]   addressInst,    // Address In :: Instruction Fetch address input :: PC
+    input   [7:0]   addressOper,    // Address In :: Operand Fetch address input :: AS1
+    input   [7:0]   addressWb,      // Address In :: WriteBack address input :: AS2
+    input   [7:0]   dataWb,         // Data IN  :: From WriteBack Stage
+    output  [7:0]   dataInst,       // Data OUT :: Instruction Fetch DataPath
+    output  [7:0]   dataOper,       // Data OUT :: Operand Fetch Data Path
+    input           writeEn,        // EN :: Write Enable From Write Back Stage
+    input           clk             // Global Clock
     );
     reg [7:0] blockMem[255:0];
     // the code below avoids Write After Read Errors

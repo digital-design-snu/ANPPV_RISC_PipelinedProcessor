@@ -1,12 +1,12 @@
 `timescale 1ns / 1ps
 
 module ALUModule(   
-    output      [7:0]   AluOut,     //                  
-    output      [3:0]   flagArray,  //
+    output      [7:0]   AluOut,     //                   
+    output      [3:0]   flagArray,  // 
     input 			    Cin,        //           
     input       [2:0]   OpcodeCCG4, //          
     input 		[7:0] 	S_AF,       //    
-    input       [7:0]   Buffer21,   //
+    input       [7:0]   Buffer21,   // 
     input       [7:0]   Buffer22,   //    
     input               XR0,        //Er0_CCG2
     input               LR0,        //LR0_CCG4

@@ -3,16 +3,16 @@
 // No WAR Protection hope Operand Forwarding Takes Care of WAR Cases :?
 
 module RegisterArray(
-	input 	 	[7:0] 		WB_DataIn,
-	output      [7:0]       R0_Out,
-	output      [7:0]       RN_Out,	
-	input 		[2:0] 		RD_RegSel,
-	input 		[2:0] 		WB_RegSel, //ccg4
-    input		            E_R0,     //ccg2
-    input		            E_RN,     //ccg2
-    input		            L_R0,     //ccg4
-    input		            L_RN,     //ccg4
-    input		            clk
+    input		            clk,        //System wide clock
+	input 	 	[7:0] 		WB_DataIn,  //DataBus input to be written into the register
+	input 		[2:0] 		RD_RegSel,  //Last three bits of opcode :: for selecting a particular register and to read it
+	input 		[2:0] 		WB_RegSel,  //ccg4 :: Last three bits of opcode :: for selecting a particular register and to write to it
+    input		            E_R0,       //ccg2 :: Enable R0 
+    input		            E_RN,       //ccg2 :: Enable RN
+    input		            L_R0,       //ccg4 :: Load R0
+    input		            L_RN,       //ccg4 :: Load RN
+    output      [7:0]       R0_Out,     //Value of R0 is stored in the register
+	output      [7:0]       RN_Out      //Value of RN is stored in the register
 	);
 
 	reg 		[7:0]		Reg_Array	[7:0];

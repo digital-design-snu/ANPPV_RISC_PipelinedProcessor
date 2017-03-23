@@ -1,13 +1,18 @@
 `timescale 1ns / 1ps
 
 module ProgramCounter(
-input			clk,
-input			IPC,DIPC,LPC2,LPC3,BB,
-input           EFL,EFL2,
-input   [7:0]   UncondBranch,
-input   [7:0]   CondBranch,
-output	[7:0]	PCBuffer1,
-output	[7:0]	toAS
+input			clk,            //System wide clock
+input			IPC,            //Increment PC
+input           DIPC,           //Double Increment PC :: Used in case of OD instruction
+input           LPC2,           //Load PC :: CCG2 :: UncondBranch
+input           LPC3,           //Load PC :: CCG3 :: CondBranch
+input           BB,             //BB input from BB module
+input           EFL,            //Enable Flag from 3rd stage
+input           EFL2,           //Enable Flag from 2nd stage
+input   [7:0]   UncondBranch,   //Address of UncondBranch from 2nd stage R0
+input   [7:0]   CondBranch,     //Address of condBranch from 3rd stage R0
+output	[7:0]	PCBuffer1,      //output to PCBuffer1
+output	[7:0]	toAS            //output to Address Selector
 );
 
 reg	 [7:0]	PCReg;

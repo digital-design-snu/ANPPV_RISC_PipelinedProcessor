@@ -1,15 +1,17 @@
 `timescale 1ns / 1ps
 
+//buffer after stage 2
+
 module Buffer2(
-    input clk,
-    input [7:0]  PC,
-    input [7:0]  OperandDecode1,
-    input [7:0]  OperandDecode2,
-    input [7:0]  Opcode,
-    output [7:0] Buffer21Out,
-    output [7:0] Buffer22Out,
-    output [7:0] OpcodeBufferOut,
-    output [7:0] PCBufferOut2                 
+    input           clk,
+    input   [7:0]   PC,                 // PC from buffer 1 output
+    input   [7:0]   OperandDecode1,     // output from OD1
+    input   [7:0]   OperandDecode2,     // output from OD2
+    input   [7:0]   Opcode,             // opcode from buffer 1 output
+    output  [7:0]   Buffer21Out,        // Outputing Result of OD1 into stage 3
+    output  [7:0]   Buffer22Out,        // Outputing Result of OD2 into stage 3
+    output  [7:0]   OpcodeBufferOut,    // Outputing Opcode of instruction going to stage 3 into stage 3
+    output  [7:0]   PCBufferOut2        // Outputing (PC+1)? of instruction going to stage 3 into stage 3         
     );
     reg [7:0] Buffer21;
     reg [7:0] Buffer22;

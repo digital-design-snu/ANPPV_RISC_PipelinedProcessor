@@ -1,14 +1,15 @@
 `timescale 1ns / 1ps
 
+//buffer after stage 3
 
 module Buffer3(
-input			clk,
-input	[7:0]	PCBuffer2,
-input 	[7:0]	ALUOut,
-input	[7:0] 	OpcodeBuffer2,
-output	[7:0] 	PCBuffer3Out,
-output 	[7:0]	ALUBuffer3Out,
-output	[7:0]	OpcodeBuffer3Out
+	input		clk,
+	input	[7:0]	PCBuffer2,			// PC from buffer 3 output
+	input 	[7:0]	ALUOut,				// Output of ALU module in stage 3
+	input	[7:0] 	OpcodeBuffer2,			// opcode from buffer 2 output
+	output	[7:0] 	PCBuffer3Out,			// Outputing (PC+1)? of instruction going to stage 4 into stage 4 
+	output 	[7:0]	ALUBuffer3Out,			// Outputing ALU output into stage 4
+	output	[7:0]	OpcodeBuffer3Out		// Outputing Opcode of instruction going to stage 4 into stage 4
 );
 
 reg	[7:0] PCBuffer3;

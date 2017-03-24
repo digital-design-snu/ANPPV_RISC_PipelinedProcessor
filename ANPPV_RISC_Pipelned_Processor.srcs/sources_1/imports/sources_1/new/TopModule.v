@@ -71,29 +71,26 @@ wire	[7:0]	OF_AS1 = Buffer31_WB;							// Buffer3.ALUBuffer3Out to AS1.Buffer32
 wire	[7:0]	OpcodeBuffer1_Out;								// Buffer1.OpcodeBuffer1Out to Buffer2.Opcode, CCG3.Opcode, OD2.OpcodeCCG2, RegFlags.rn2, RegArr.rdRegCell, IO.IOcellRD.
 wire	[7:0]	SP_Out;   										// AS1,AS2,OperandDecode1
 wire	[7:0]	Buffer21_Out;                                   // Buf23.Buffer21Out to CndBr.Buffer21, Alu.Buffer21
-wire	[7:0]	Buffer22_ALUModule;
-wire	[7:0]	ConditionalBranch_Branch;
-wire	[7:0]	ALUModule_Buffer31;
-wire	[3:0]	ALUModule_FlagReg;
-wire	     	FlagReg_Carry_ALUModule;
-wire	     	FlagReg_Out;
-
-
-wire 	[7:0] 	PCBuffer3_WB;
-
-wire	[7:0]	Output; 
-wire	[7:0]	OFALU_ALUModule = Buffer31_WB;
-wire	[7:0]	AS2_Mem3;
-wire	[7:0]	OpcodeBuffer2_Out;
-  wire [7:0] OpcodeBuffer3_Out;					// Buffer34.OpcodeBuffer3_Out to ALU.OpcodeCCG4 , AS1.OpcodeCC
-  wire RegFL_FLRN2;								// RegFl.FlagOut2 to AS1.FLRN , OperandDecode1.FLRN , OperandDecode2.FLRN
-  wire RegFL_FLRN3;								// RegFl.FlagOut3 to ALU.FLRN
-  wire [7:0] R0_Out;							// RegisterArray.R0_Out to AS1.R0AddressIn, AS2.R0AddressIn , OperandDecode1.R0Out
-  wire [7:0] RN_Out;							// UNUSED : RegisterArray.RN_Out
-  wire [7:0] PCBuffer1_Out;						// Buffer1.PCBufferOut1 to Buffer2.PC , AddressSelector.PCBuffer1
-  wire [7:0] PCBuffer2_Out;						// Buffer2.PCBufferOut2 to Buffer3.PCBuffer2 , ConditionalBranch.PCBuffer2
-  wire XR0_CCG3;								// CCG3.XR0 to ALU.XR0
-  wire SOD_CCG3;								// CCG3.SOD to ALU.SOD
+wire	[7:0]	Buffer22_ALUModule;                             // Buf23.Buffer22Out to Alu.Buffer22
+wire	[7:0]	ConditionalBranch_Branch;                       // CndBr.BrOut to PC.CondBranch
+wire	[7:0]	ALUModule_Buffer31;                             // Alu.AluOut to Buf34.ALUOut
+wire	[3:0]	ALUModule_FlagReg;                              // Alu.flagArray to FLReg.inArray                      
+wire	     	FlagReg_Carry_ALUModule;                        // FLReg.carry to Alu.Cin 
+wire	     	FlagReg_Out;                                    // FlReg.FL to CndBr.FL, CCG4.FL
+wire 	[7:0] 	PCBuffer3_WB;                                   // Buf34.PCBuffer3Out to WBMod.PCBuffer3
+wire	[7:0]	Output;                                         // WBMod.WB to Mem.dataWB, SP.SPIn, RegArr.WB_DataIn, IO.WriteOutputs
+wire	[7:0]	OFALU_ALUModule = Buffer31_WB;                  // Buffer3.ALUBuffer3Out to ALUModule.OF
+wire	[7:0]	AS2_Mem3;                                       // AS2.addressOut toMem.addressWb
+wire	[7:0]	OpcodeBuffer2_Out;                              // Buf23.OpcodeBufferOut to Buf34.OpcodeBuffer2, CCG4.opcode, FlReg.opcode, OperandDecode1.OpcodeCCG2, RegFl.rn3, Alu.S_AF, As1.OpcodeCCG2
+wire [7:0] OpcodeBuffer3_Out;					                // Buffer34.OpcodeBuffer3_Out to ALU.OpcodeCCG4 , AS1.OpcodeCC
+wire RegFL_FLRN2;								                // RegFl.FlagOut2 to AS1.FLRN , OperandDecode1.FLRN , OperandDecode2.FLRN
+wire RegFL_FLRN3;								                // RegFl.FlagOut3 to ALU.FLRN
+wire [7:0] R0_Out;							                    // RegisterArray.R0_Out to AS1.R0AddressIn, AS2.R0AddressIn , OperandDecode1.R0Out
+wire [7:0] RN_Out;							                    // UNUSED : RegisterArray.RN_Out
+wire [7:0] PCBuffer1_Out;						                // Buffer1.PCBufferOut1 to Buffer2.PC , AddressSelector.PCBuffer1
+wire [7:0] PCBuffer2_Out;						                // Buffer2.PCBufferOut2 to Buffer3.PCBuffer2 , ConditionalBranch.PCBuffer2
+wire XR0_CCG3;								                    // CCG3.XR0 to ALU.XR0
+wire SOD_CCG3;								                    // CCG3.SOD to ALU.SOD
 
 
 

@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
 module ALUModule(   
-    
     /*******************INPUT PORTS********************/
     input 			    Cin,        // Carry Input
     input       [2:0]   OpcodeCCG4, // 3 bit Opcode from Control Code Generator 4

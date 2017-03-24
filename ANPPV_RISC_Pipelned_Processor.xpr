@@ -3,7 +3,11 @@
 <!--                                                         -->
 <!-- Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.   -->
 
+<<<<<<< HEAD
+<Project Version="7" Minor="12" Path="N:/Project Files/ProcessorDesign2016_17/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr">
+=======
 <Project Version="7" Minor="12" Path="/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.xpr">
+>>>>>>> 37da0fa1131fefdefb568c610afe1b00b869208d
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="138a9d03b8864f71a8d39b33caa88aa9"/>
@@ -24,7 +28,7 @@
     <Option Name="IPUserFilesDir" Val="$PPRDIR/ANPPV_RISC_Pipelned_Processor.ip_user_files"/>
     <Option Name="IPStaticSourceDir" Val="$PPRDIR/ANPPV_RISC_Pipelned_Processor.ip_user_files/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
-    <Option Name="WTXSimLaunchSim" Val="489"/>
+    <Option Name="WTXSimLaunchSim" Val="492"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>

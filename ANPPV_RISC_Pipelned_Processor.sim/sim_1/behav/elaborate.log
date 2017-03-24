@@ -1,36 +1,7 @@
 Vivado Simulator 2016.1
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2016.1/bin/unwrapped/win64.o/xelab.exe -wto 9f3ce08b0112448ca56b0a5fc3eb938f --debug all --rangecheck --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot TopModule_behav xil_defaultlib.TopModule xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2016.1/bin/unwrapped/win64.o/xelab.exe -wto 138a9d03b8864f71a8d39b33caa88aa9 --debug all --rangecheck --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_TopModule_behav xil_defaultlib.tb_TopModule xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.ALUbasic
-Compiling module xil_defaultlib.ALUModule
-Compiling module xil_defaultlib.AddressSelector1
-Compiling module xil_defaultlib.AddressSelector2
-Compiling module xil_defaultlib.Bubble
-Compiling module xil_defaultlib.Buffer1
-Compiling module xil_defaultlib.Buffer2
-Compiling module xil_defaultlib.Buffer3
-Compiling module xil_defaultlib.ConditionalBranch
-Compiling module xil_defaultlib.ControlCodeGenerator1Async
-Compiling module xil_defaultlib.ControlCodeGenerator2
-Compiling module xil_defaultlib.ControlCodeGenerator3
-Compiling module xil_defaultlib.ControlCodeGenerator4
-Compiling module xil_defaultlib.FlagRegister
-Compiling module xil_defaultlib.IR
-Compiling module xil_defaultlib.MultiPortMem
-Compiling module xil_defaultlib.OperandDecode1
-Compiling module xil_defaultlib.OperandDecode2
-Compiling module xil_defaultlib.ProgramCounter
-Compiling module xil_defaultlib.StackPointer
-Compiling module xil_defaultlib.RegisterFlags
-Compiling module xil_defaultlib.RegisterArray
-Compiling module xil_defaultlib.Io_GPIB
-Compiling module xil_defaultlib.WBModule
-Compiling module xil_defaultlib.TopModule
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot TopModule_behav
+ERROR: [XSIM 43-4287] "D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.srcs/sources_1/new/Test_Bench.v" Line 43. Undefined system task '$Dumpfile'

@@ -27,39 +27,39 @@ module Io_GPIB(
     );
     
     
-reg [7:0] outRegs [7:0];
-initial begin
-    outRegs[0] = 0 ;
-    outRegs[1] = 0 ;
-    outRegs[2] = 0 ;
-    outRegs[3] = 0 ;
-    outRegs[4] = 0 ;
-    outRegs[5] = 0 ;
-    outRegs[6] = 0 ;
-    outRegs[7] = 0 ;
-end
-
-assign io0 =outRegs[0];
-assign io1 =outRegs[1];
-assign io2 =outRegs[2];
-assign io3 =outRegs[3];
-assign io4 =outRegs[4];
-assign io5 =outRegs[5];
-assign io6 =outRegs[6];
-assign io7 =outRegs[7];
-
-
-always @(posedge Clk) begin
-    if(Lop) outRegs[ioSel_WB] = WriteOutputs;
+    reg [7:0] outRegs [7:0];
+    initial begin
+        outRegs[0] = 0 ;
+        outRegs[1] = 0 ;
+        outRegs[2] = 0 ;
+        outRegs[3] = 0 ;
+        outRegs[4] = 0 ;
+        outRegs[5] = 0 ;
+        outRegs[6] = 0 ;
+        outRegs[7] = 0 ;
     end
 
-assign ReadInputs =     (ioSel_RD == 3'b000 & (Eip ) )?      io0I    : (
-                        (ioSel_RD == 3'b001 & (Eip ) )?      io1I    : (
-                        (ioSel_RD == 3'b010 & (Eip ) )?      io2I    : (
-                        (ioSel_RD == 3'b011 & (Eip ) )?      io3I    : (
-                        (ioSel_RD == 3'b100 & (Eip ) )?      io4I    : (
-                        (ioSel_RD == 3'b101 & (Eip ) )?      io5I    : (
-                        (ioSel_RD == 3'b110 & (Eip ) )?      io6I    : (       
-                        (ioSel_RD == 3'b111 & (Eip ) )?      io7I    : 8'hzz )))))));
-                        
+    assign io0 =outRegs[0];
+    assign io1 =outRegs[1];
+    assign io2 =outRegs[2];
+    assign io3 =outRegs[3];
+    assign io4 =outRegs[4];
+    assign io5 =outRegs[5];
+    assign io6 =outRegs[6];
+    assign io7 =outRegs[7];
+
+
+    always @(posedge Clk) begin
+        if(Lop) outRegs[ioSel_WB] = WriteOutputs;
+        end
+
+    assign ReadInputs =     (ioSel_RD == 3'b000 & (Eip ) )?      io0I    : (
+                            (ioSel_RD == 3'b001 & (Eip ) )?      io1I    : (
+                            (ioSel_RD == 3'b010 & (Eip ) )?      io2I    : (
+                            (ioSel_RD == 3'b011 & (Eip ) )?      io3I    : (
+                            (ioSel_RD == 3'b100 & (Eip ) )?      io4I    : (
+                            (ioSel_RD == 3'b101 & (Eip ) )?      io5I    : (
+                            (ioSel_RD == 3'b110 & (Eip ) )?      io6I    : (       
+                            (ioSel_RD == 3'b111 & (Eip ) )?      io7I    : 8'hzz )))))));
+                            
 endmodule

@@ -1,7 +1,0 @@
-Vivado Simulator 2016.1
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2016.1/bin/unwrapped/win64.o/xelab.exe -wto 138a9d03b8864f71a8d39b33caa88aa9 --debug all --rangecheck --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_TopModule_behav xil_defaultlib.tb_TopModule xil_defaultlib.glbl -log elaborate.log 
-Using 2 slave threads.
-Starting static elaboration
-Completed static elaboration
-ERROR: [XSIM 43-4287] "D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.srcs/sources_1/new/Test_Bench.v" Line 43. Undefined system task '$Dumpfile'

@@ -117,12 +117,12 @@ ALUModule           Alu(                    // REview these comments later
    .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),                  //    input  ::  Buffer3               :: .OpcodeBuffer3Out
    .S_AF(OpcodeBuffer2_Out),                             //    input  ::  Buffer2               :: .OpcodeBufferOut
    .SAL(SAL),                                            //    input  ::  ControlCodeGenerator3 :: .S_AL
-   .SOD(SOD_CCG3)                                        //    input  ::  ControlCodeGenerator3 :: .SOD
-   .XR0(XR0_CCG3),                                       //    input  ::  ControlCodeGenerator3 :: .XR0
+   .SOD(SOD_CCG3),                                        //    input  ::  ControlCodeGenerator3 :: .SOD
+   .XR0(XR0_CCG3)                                       //    input  ::  ControlCodeGenerator3 :: .XR0
 );
 
 AddressSelector1    As1(
-   .addressOut(AS1_Mem2)                                 //    Output :: ()
+   .addressOut(AS1_Mem2),                                 //    Output :: ()
    .buffer32(OF_AS1),                                    //    input  :: ()
    .ER0(ER0),                                            //    input  :: (ControlCodeGenerator2,.ER0)
    .ERN(ERN),                                            //    input  :: (ControlCodeGenerator2,.ERN)
@@ -136,15 +136,15 @@ AddressSelector1    As1(
    .PCBuffer1(PCBuffer1_Out),                            //    input  :: (Buffer1,.PCBuffer1Out)
    .R0AddressIn(R0_Out),                                 //    input  :: ()
    .SOD(SOD),                                            //    input  :: (ControlCodeGenerator2,.SOD)
-   .SPAddressIn(SP_Out),                                 //    input  :: ()
+   .SPAddressIn(SP_Out)                                 //    input  :: ()
    //.OFOF(OFOF),                                        
 );
 
 AddressSelector2    As2(
-	.addressOut(AS2_Mem3)
+	.addressOut(AS2_Mem3),
 	.DSP(DSP),
 	.R0AddressIn(R0_Out),
-	.SPAddressIn(SP_Out),
+	.SPAddressIn(SP_Out)
 );
 
 Bubble              Bbl(
@@ -159,8 +159,8 @@ Bubble              Bbl(
 	.X4SP(CCG2_BubbleX),
 	.XR0(XR0),
 	.XRN(XRN),
-	.XSOD(CCG1_BubbleXSOD)
-	.XWR(CCG2_BubbleXWR),
+	.XSOD(CCG1_BubbleXSOD),
+	.XWR(CCG2_BubbleXWR)
 	//.LSP(LSPCCG2),
 );
 
@@ -190,16 +190,16 @@ Buffer3             Buf34(
 	.ALUOut(ALUModule_Buffer31),
 	.clk(clk),
 	.OpcodeBuffer2(OpcodeBuffer2_Out),
-	.OpcodeBuffer3Out(OpcodeBuffer3_Out)
+	.OpcodeBuffer3Out(OpcodeBuffer3_Out),
 	.PCBuffer2(PCBuffer2_Out),
-	.PCBuffer3Out(PCBuffer3_WB),
+	.PCBuffer3Out(PCBuffer3_WB)
 );
 
 ConditionalBranch   CndBr(
-	.BrOut(ConditionalBranch_Branch)
+	.BrOut(ConditionalBranch_Branch),
 	.Buffer21(Buffer21_Out),
 	.FL(FlagReg_Out),
-	.PCBuffer2(PCBuffer2_Out),
+	.PCBuffer2(PCBuffer2_Out)
 );    
 
 
@@ -236,7 +236,9 @@ ControlCodeGenerator2 CCG2(
 
 ControlCodeGenerator3 CCG3(
 	.BB3(BB3),
-	.clk(clk),.SOD_CCG2(SOD),.SOD(SOD_CCG3)
+	.clk(clk),
+	.SOD_CCG2(SOD),
+	.SOD(SOD_CCG3),
 	.E_R0(ER0_CCG3),
 	.E_R0_CCG2(ER0),     //CCG2
 	.E_RN(ERN_CCG3),
@@ -246,21 +248,21 @@ ControlCodeGenerator3 CCG3(
 	.opcode(OpcodeBuffer1_Out),   //from buf 1-2
 	.S_AL(SAL),
 	.XR0(XR0_CCG3),
-	.XR0_CCG2(XR0),
+	.XR0_CCG2(XR0)
 );
 
 
 ControlCodeGenerator4 CCG4(
 	.clk(clk),
 	.DSP_out(DSP),
-	.ERN(ERNCCG4)
+	.ERN(ERNCCG4),
 	.FLRN(FLRN),
 	.LOP(LOP),
 	.LR0(LR0),
 	.LRN(LRN),
 	.LSP(LSP),
 	.opcode(OpcodeBuffer2_Out),
-	.WR(WR),.FL(FlagReg_Out),
+	.WR(WR),.FL(FlagReg_Out)
 );
 
 
@@ -268,10 +270,10 @@ ControlCodeGenerator4 CCG4(
 FlagRegister    FlReg(
 	.carry(FlagReg_Carry_ALUModule),           //Output to ALU
 	.clk(clk),
-	.FL(FlagReg_Out)               //Output to Control Code Generator
+	.FL(FlagReg_Out),               //Output to Control Code Generator
 	.inArray(ALUModule_FlagReg),//From ALU
 	.opCode(OpcodeBuffer2_Out[2:0]), //From IR
-	.S_AL(SAL),   //Control bit, meaningful operation
+	.S_AL(SAL)   //Control bit, meaningful operation
 );  
 
 
@@ -286,11 +288,11 @@ MultiPortMem    MultPrtMem(
 	.addressInst(PC_Mem1),
 	.addressOper(AS1_Mem2),
 	.addressWb(AS2_Mem3),
-	.clk(clk)
+	.clk(clk),
 	.dataInst(Mem1_IR),
 	.dataOper(Mem2_OperandDecode1),
 	.dataWb(Output),
-	.writeEn(WR),
+	.writeEn(WR)
 );
 
 
@@ -298,7 +300,7 @@ OperandDecode1  OprDc1(
 	.E_IP(EIP),      //ccg2
 	.E_R0(ER0),     //ccg2
 	.E_RN(ERN),     //ccg2
-	.FLRN(RegFL_FLRN2)
+	.FLRN(RegFL_FLRN2),
 	.L_R0(LR0),     //ccg4
 	.LRN(LRN),
 	.MEM_OpData(Mem2_OperandDecode1),    
@@ -309,7 +311,7 @@ OperandDecode1  OprDc1(
 	.R0_Out(R0_Out),
 	.readInIO(IO_OperandDecode1), 
 	.S_OD(SOD),     //ccg2
-	.stackPointer(SP_Out),
+	.stackPointer(SP_Out)
 );
 
 
@@ -332,13 +334,14 @@ ProgramCounter   PrgCtr(
 	.clk(clk),
 	.CondBranch(ConditionalBranch_Branch),
 	.DIPC(DIPC),
-	.EFL(EFL),.EFL2(EFL2),
+	.EFL(EFL),
+	.EFL2(EFL2),
 	.IPC(IPC),
 	.LPC2(LPC2),
 	.LPC3(LPC3),
 	.PCBuffer1(PC_PCBuffer1),
-	.toAS(PC_Mem1)
-	.UncondBranch(OperandDecode1_Buffer21),
+	.toAS(PC_Mem1),
+	.UncondBranch(OperandDecode1_Buffer21)
 );
 
 
@@ -355,17 +358,17 @@ StackPointer      StkPtr(
 RegisterFlags RegFl(
 	.clk(clk),							// Input 	::  Global Clock
 	.flagOut2(RegFL_FLRN2),   			// Output 	:: 
-	.flagOut3(RegFL_FLRN3)    			// Output 	:: 
+	.flagOut3(RegFL_FLRN3),    			// Output 	:: 
 	.FLR0(FLR0),    					// Input 	::  
 	.LR0(LR0),							// Input 	::  
 	.LRN(LRN),							// Input 	::  
 	.rn2(OpcodeBuffer1_Out[2:0]),     	// Input 	::  Buffer1 				:: .OpcodeBuffer1_Out
 	.rn3(OpcodeBuffer2_Out[2:0]),     	// Input 	::  
-	.rnInput(OpcodeBuffer3_Out[2:0]), 	// Input 	::  Buffer3 				:: .OpcodeBuffer3_Out
+	.rnInput(OpcodeBuffer3_Out[2:0]) 	// Input 	::  Buffer3 				:: .OpcodeBuffer3_Out
 );
 
 RegisterArray       RegArr      (
-	.clk(clk)							// Input 	::  Global Clock
+	.clk(clk),							// Input 	::  Global Clock
 	.E_R0(ER0),							// Input 	::  ControlCodeGenerator2 	:: .ER0
 	.E_RN(ERN),							// Input 	::  ControlCodeGenerator2 	:: .ERN
 	.L_R0(LR0),							// Input 	::  ControlCodeGenerator4 	:: .LR0
@@ -374,7 +377,7 @@ RegisterArray       RegArr      (
 	.RD_RegSel(OpcodeBuffer1_Out[2:0]),	// Input 	::  Buffer1 				:: .OpcodeBuffer1_Out
 	.RN_Out(RA_OperandDecode2),			// Output 	::  (OperandDecode2, .RegIn)
 	.WB_DataIn(Output),					// Input 	::  WBModule 				:: .WB
-	.WB_RegSel(OpcodeBuffer3_Out[2:0]),	// Input 	::  Buffer3 				:: .OpcodeBuffer3_Out
+	.WB_RegSel(OpcodeBuffer3_Out[2:0])	// Input 	::  Buffer3 				:: .OpcodeBuffer3_Out
 );
 
 Io_GPIB IO(
@@ -399,8 +402,8 @@ Io_GPIB IO(
 	.ioSel_RD(OpcodeBuffer1_Out[2:0]),  // Input 	:: Buffer1 					:: .OpcodeBuffer1_Out
 	.ioSel_WB(OpcodeBuffer3_Out[2:0]),  // Input 	:: Buffer3 					:: .OpcodeBuffer3_Out
 	.Lop(LOP),               			// Inout 	:: ControlCodeGenerator4 	:: .LOP
-	.ReadInputs(IO_OperandDecode1)  	// Output 	:: (OperandDecode1, .readInIO)
-	.WriteOutputs(Output),				// Input 	:: WBModule 				:: .WB
+	.ReadInputs(IO_OperandDecode1),  	// Output 	:: (OperandDecode1, .readInIO)
+	.WriteOutputs(Output)				// Input 	:: WBModule 				:: .WB
 );
 
 WBModule            WBMod       (

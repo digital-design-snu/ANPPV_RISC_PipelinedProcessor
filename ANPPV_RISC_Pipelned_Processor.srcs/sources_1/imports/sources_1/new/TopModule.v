@@ -70,7 +70,7 @@ wire	[7:0]	OperandDecode2_Buffer22;						// OD2.toBuffer22 to Buffer2.OD2
 wire	[7:0]	OF_AS1 = Buffer31_WB;							// Buffer3.ALUBuffer3Out to AS1.Buffer32
 wire	[7:0]	OpcodeBuffer1_Out;								// Buffer1.OpcodeBuffer1Out to Buffer2.Opcode, CCG3.Opcode, OD2.OpcodeCCG2, RegFlags.rn2, RegArr.rdRegCell, IO.IOcellRD.
 wire	[7:0]	SP_Out;   										// AS1,AS2,OperandDecode1
-wire	[7:0]	Buffer21_Out;
+wire	[7:0]	Buffer21_Out;                                   // Buf23.Buffer21Out to CndBr.Buffer21, Alu.Buffer21
 wire	[7:0]	Buffer22_ALUModule;
 wire	[7:0]	ConditionalBranch_Branch;
 wire	[7:0]	ALUModule_Buffer31;
@@ -103,7 +103,6 @@ assign  led [7:0] = PCBuffer2_Out;
 
 /*Module instantiations Start*/
 
->>>>>>> 7e6035aae3aa9aec92e7fcbd4286ecbd69acaea0
 ALUModule           Alu(
 	.AluOut(ALUModule_Buffer31),
 	.flagArray(ALUModule_FlagReg),

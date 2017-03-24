@@ -95,39 +95,42 @@ module TopModule(
 
     // Module instantiations Start
     
-ALUModule           Alu(
-       .AluOut(ALUModule_Buffer31),
-       .flagArray(ALUModule_FlagReg),
-       .Cin(FlagReg_Carry_ALUModule),
-       .S_AF(OpcodeBuffer2_Out),
-       .Buffer21(Buffer21_Out),
-       .Buffer22(Buffer22_ALUModule),
-       .XR0(XR0_CCG3),
-       .LR0(LR0),
-       .ER0(ER0_CCG3),
-       .LRN(LRN),.OpcodeCCG4(OpcodeBuffer3_Out[2:0]),
-       .ERN(ERN_CCG3),
-       .FLRN(RegFL_FLRN3),
-       .OF(OFALU_ALUModule),
-       .SAL(SAL),.SOD(SOD_CCG3)
+ALUModule           Alu(                    // REview these comments later
+       .AluOut(ALUModule_Buffer31),                          //    Output ::  Buffer 3              :: .AluOut
+       .flagArray(ALUModule_FlagReg),                        //    Output ::  FlagRegister          :: .inArray
+       .Cin(FlagReg_Carry_ALUModule),                        //    input  ::  FlagRegister          :: .carry
+       .S_AF(OpcodeBuffer2_Out),                             //    input  ::  Buffer2               :: .OpcodeBufferOut
+       .Buffer21(Buffer21_Out),                              //    input  ::  Buffer2               :: .Buffer21Out
+       .Buffer22(Buffer22_ALUModule),                        //    input  ::  Buffer2               :: .Buffer22Out
+       .XR0(XR0_CCG3),                                       //    input  ::  ControlCodeGenerator3 :: .XR0
+       .LR0(LR0),                                            //    input  ::  ControlCodeGenerator4 :: .LR0
+       .ER0(ER0_CCG3),                                       //    input  ::  ControlCodeGenerator3 :: .E_R0    
+       .LRN(LRN),                                            //    input  ::  ControlCodeGenerator4 :: .LRN
+       .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),                  //    input  ::  Buffer3               :: .OpcodeBuffer3Out
+       .ERN(ERN_CCG3),                                       //    input  ::  ControlCodeGenerator3 :: .E_RN       
+       .FLRN(RegFL_FLRN3),                                   //    input  ::  RegisterFlags         :: .flagOut3
+       .OF(OFALU_ALUModule),                                 //    input  ::  Bufffer3              :: .ALUBuffer3Out
+       .SAL(SAL),                                            //    input  ::  ControlCodeGenerator3 :: .S_AL
+       .SOD(SOD_CCG3)                                        //    input  ::  ControlCodeGenerator3 :: .SOD
        );
 
 AddressSelector1    As1(
-       .SOD(SOD),.OpcodeCCG2(OpcodeBuffer2_Out[2:0]),
-       .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),
-       .ESP(ESP),
-       .LSP(LSP),
-       //.OFOF(OFOF),
-       .ER0(ER0),
-       .LR0(LR0),
-       .LRN(LRN),
-       .ERN(ERN),
-       .FLRN(RegFL_FLRN2),
-       .PCBuffer1(PCBuffer1_Out),
-       .SPAddressIn(SP_Out),
-       .R0AddressIn(R0_Out),
-       .buffer32(OF_AS1),
-       .addressOut(AS1_Mem2)
+       .SOD(SOD),                                            //    input  :: (ControlCodeGenerator2,.SOD)
+       .OpcodeCCG2(OpcodeBuffer2_Out[2:0]),                  //    input  :: (Buffer2,.OpcodeBufferOut)
+       .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),                  //    input  :: (Buffer3,.OpcodeBuffer3Out)
+       .ESP(ESP),                                            //    input  :: (ControlCodeGenerator2,.ESP)
+       .LSP(LSP),                                            //    input  :: (ControlCodeGenerator4,.LSP)
+       //.OFOF(OFOF),                                        
+       .ER0(ER0),                                            //    input  :: (ControlCodeGenerator2,.ER0)
+       .LR0(LR0),                                            //    input  :: (ControlCodeGenerator4,.LR0)
+       .LRN(LRN),                                            //    input  :: (ControlCodeGenerator4,.LRN)
+       .ERN(ERN),                                            //    input  :: (ControlCodeGenerator2,.ERN)
+       .FLRN(RegFL_FLRN2),                                   //    input  :: (RegisterFlags,.flagOut2)
+       .PCBuffer1(PCBuffer1_Out),                            //    input  :: (Buffer1,.PCBuffer1Out)
+       .SPAddressIn(SP_Out),                                 //    input  :: ()
+       .R0AddressIn(R0_Out),                                 //    input  :: ()
+       .buffer32(OF_AS1),                                    //    input  :: ()
+       .addressOut(AS1_Mem2)                                 //    Output :: ()
        );
 
 AddressSelector2    As2(

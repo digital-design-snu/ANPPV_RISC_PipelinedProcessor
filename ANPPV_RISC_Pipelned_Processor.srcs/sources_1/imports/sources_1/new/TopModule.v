@@ -40,11 +40,11 @@ module TopModule(
   wire  ERNCCG1;
   wire  LSPCCG2;
   wire  ESPCCG1;
-  wire  ERNCCG4;
-  wire  CCG1_BubbleX;
-  wire  CCG2_BubbleX;
-  wire  CCG1_BubbleXSOD;
-  wire  CCG2_BubbleXWR;
+  wire  ERNCCG4;					//CCG4.ERN to WBModule.ERN
+  wire  CCG1_BubbleX;				//CCG1.X2SP to Bubble.X2SP
+  wire  CCG2_BubbleX;				//CCG2.X4SP to  Bubble.X4SP
+  wire  CCG1_BubbleXSOD;			//CCG1.XSOD to Bubble.XSOD
+  wire  CCG2_BubbleXWR;				//CCG2.XWR to Bubble.XWR 
   /*Control Code Wire Instantiations end*/
 
 
@@ -84,15 +84,15 @@ module TopModule(
   wire [7:0] OFALU_ALUModule = Buffer31_WB;
   wire [7:0] AS2_Mem3;
   wire [7:0] OpcodeBuffer2_Out;
-  wire [7:0] OpcodeBuffer3_Out;
-  wire RegFL_FLRN2;
-  wire RegFL_FLRN3;
-  wire [7:0] R0_Out;
-  wire [7:0] RN_Out;
-  wire [7:0] PCBuffer1_Out;
-  wire [7:0] PCBuffer2_Out;
-  wire XR0_CCG3;
-  wire SOD_CCG3;
+  wire [7:0] OpcodeBuffer3_Out;					// Buffer34.OpcodeBuffer3_Out to ALU.OpcodeCCG4 , AS1.OpcodeCC
+  wire RegFL_FLRN2;								// RegFl.FlagOut2 to AS1.FLRN , OperandDecode1.FLRN , OperandDecode2.FLRN
+  wire RegFL_FLRN3;								// RegFl.FlagOut3 to ALU.FLRN
+  wire [7:0] R0_Out;							// RegisterArray.R0_Out to AS1.R0AddressIn, AS2.R0AddressIn , OperandDecode1.R0Out
+  wire [7:0] RN_Out;							// UNUSED : RegisterArray.RN_Out
+  wire [7:0] PCBuffer1_Out;						// Buffer1.PCBufferOut1 to Buffer2.PC , AddressSelector.PCBuffer1
+  wire [7:0] PCBuffer2_Out;						// Buffer2.PCBufferOut2 to Buffer3.PCBuffer2 , ConditionalBranch.PCBuffer2
+  wire XR0_CCG3;								// CCG3.XR0 to ALU.XR0
+  wire SOD_CCG3;								// CCG3.SOD to ALU.SOD
 
   /*hardcoded wires end*/
     

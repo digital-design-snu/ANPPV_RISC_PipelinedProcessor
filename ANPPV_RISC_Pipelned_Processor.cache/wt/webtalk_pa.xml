@@ -3,10 +3,18 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
+<<<<<<< HEAD
 <application name="pa" timeStamp="Fri Mar 24 12:28:12 2017">
+=======
+<<<<<<< HEAD
+<application name="pa" timeStamp="Thu Mar 23 00:29:52 2017">
+=======
+<application name="pa" timeStamp="Thu Mar 23 22:23:29 2017">
+>>>>>>> 37da0fa1131fefdefb568c610afe1b00b869208d
+>>>>>>> 57275af1deb7c5caf4c89eb6005788311118c123
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="876dd90fbbc1497eb1bb62bac4a44f7b" type="ProjectID"/>
-<property name="ProjectIteration" value="19" type="ProjectIteration"/>
+<property name="ProjectIteration" value="20" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -21,20 +29,26 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AutoConnectTarget" value="1" type="JavaHandler"/>
 <property name="EditDelete" value="3" type="JavaHandler"/>
 <property name="EditUndo" value="4" type="JavaHandler"/>
+<property name="FilePrintCmdHandler" value="1" type="JavaHandler"/>
 <property name="LaunchProgramFpga" value="8" type="JavaHandler"/>
 <property name="NewProject" value="2" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="2" type="JavaHandler"/>
+<property name="OpenProject" value="2" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="1" type="JavaHandler"/>
 <property name="ProgramDevice" value="1" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="8" type="JavaHandler"/>
 <property name="RefreshDevice" value="1" type="JavaHandler"/>
 <property name="ReportDRC" value="2" type="JavaHandler"/>
 <property name="ReportTimingSummary" value="2" type="JavaHandler"/>
-<property name="RunBitgen" value="15" type="JavaHandler"/>
+<property name="RunBitgen" value="16" type="JavaHandler"/>
 <property name="RunImplementation" value="4" type="JavaHandler"/>
 <property name="RunSchematic" value="4" type="JavaHandler"/>
 <property name="RunSynthesis" value="3" type="JavaHandler"/>
+<<<<<<< HEAD
 <property name="SaveFileProxyHandler" value="8" type="JavaHandler"/>
+=======
+<property name="SaveFileProxyHandler" value="7" type="JavaHandler"/>
+>>>>>>> 57275af1deb7c5caf4c89eb6005788311118c123
 <property name="SaveProjectAs" value="6" type="JavaHandler"/>
 <property name="SetSourceEnabled" value="1" type="JavaHandler"/>
 <property name="ShowConnectivity" value="1" type="JavaHandler"/>
@@ -52,7 +66,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ZoomIn" value="13" type="JavaHandler"/>
 <property name="ZoomOut" value="31" type="JavaHandler"/>
 </item>
+<<<<<<< HEAD
 <item name="Gui Resources Info">
+<<<<<<< HEAD
 <property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, TopModule (TopModule.v" value="6" type="GuiResourceData"/>
 <property name="PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, D:/Paul/Desktop/ANPPV_RISC/ANPPV_RISC_PipelinedProcessor/ANPPV_RISC_Pipelned_Processor.xpr, 0" value="1" type="GuiResourceData"/>
 <property name="TopModule.v, 341, 531" value="1" type="GuiResourceData"/>
@@ -62,7 +78,116 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="GuiMode" value="96" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
 <property name="TclMode" value="76" type="TclMode"/>
+=======
+<property name="ALUModule.v, 123, 127" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 190, 165" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 192, 110" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 196, 163" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 230, 196" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 239, 195" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 259, 170" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 267, 59" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 274, 163" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 274, 68" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 276, 164" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 281, 62" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 295, 197" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 311, 58" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 314, 58" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 320, 66" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 321, 62" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 322, 59" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 359, 161" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 372, 115" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 398, 174" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 443, 108" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 444, 158" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 451, 198" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 452, 79" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 453, 201" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 459, 187" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 463, 174" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 475, 128" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 475, 161" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 482, 176" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 497, 64" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 500, 61" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 503, 66" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 506, 66" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 56, 143" value="1" type="GuiResourceData"/>
+<property name="ALUModule.v, 593, 166" value="1" type="GuiResourceData"/>
+<property name="ControlCodeGenerator1Async.v, 604, 110" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, TopModule (TopModule.v" value="46" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="6" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, ER0, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, ER0_CCG2" value="2" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, ER0_CCG2, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, OpcodeBuffer2_Out" value="3" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, OpcodeBuffer2_Out, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, RegFL_FLRN3" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, S_af, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, XR0" value="2" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, XR0, true" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 131, 194" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 157, 147" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 194, 147" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 197, 72" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 206, 127" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 218, 163" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 220, 163" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 256, 153" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 257, 149" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 263, 162" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 264, 93" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 266, 91" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 268, 194" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 268, 214" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 269, 89" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 272, 62" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 273, 163" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 278, 104" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 280, 224" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 281, 199" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 308, 93" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 312, 76" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 313, 59, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 323, 99" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 355, 221" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 355, 247, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 368, 241" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 395, 85" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 40, 99" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 404, 145" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 406, 76" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 415, 202" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 423, 71" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 430, 223" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 435, 297" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 462, 109" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 476, 210" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 493, 68" value="1" type="GuiResourceData"/>
+<property name="StackPointer.v, 577, 54" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 102, 230, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 105, 230, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 149, 209" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 167, 210" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 177, 189" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 208, 143" value="2" type="GuiResourceData"/>
+<property name="TopModule.v, 211, 246" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 211, 249" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 287, 206" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 292, 108, false, true, false, false, false" value="2" type="GuiResourceData"/>
+<property name="TopModule.v, 361, 196" value="1" type="GuiResourceData"/>
+<property name="TopModule.v, 90, 214" value="1" type="GuiResourceData"/>
 </item>
+<item name="Other">
+<property name="GuiMode" value="126" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="84" type="TclMode"/>
+>>>>>>> 57275af1deb7c5caf4c89eb6005788311118c123
+</item>
+=======
+>>>>>>> 37da0fa1131fefdefb568c610afe1b00b869208d
 </section>
 </application>
 </document>

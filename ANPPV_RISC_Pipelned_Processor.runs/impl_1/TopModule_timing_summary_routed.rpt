@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2016.1 (win64) Build 1538259 Fri Apr  8 15:45:27 MDT 2016
-| Date         : Sun Aug 14 18:24:27 2016
-| Host         : Lenovo-PC running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
+| Date         : Thu Mar 23 22:25:03 2017
+| Host         : Hogwarts running 64-bit Linux Mint 17.1 Rebecca
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file TopModule_timing_summary_routed.rpt -rpx TopModule_timing_summary_routed.rpx
 | Design       : TopModule
 | Device       : 7a100t-csg324

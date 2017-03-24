@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2016.1 (win64) Build 1538259 Fri Apr  8 15:45:27 MDT 2016
-| Date         : Sun Aug 14 18:22:56 2016
-| Host         : Lenovo-PC running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
+| Date         : Thu Mar 23 22:24:31 2017
+| Host         : Hogwarts running 64-bit Linux Mint 17.1 Rebecca
 | Command      : report_drc -file TopModule_drc_opted.rpt
 | Design       : TopModule
 | Device       : xc7a100tcsg324-1

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/prasanna/Desktop/Vivado/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test/pg_Pipeline_Latest_Test.srcs/constrs_1/imports/VHDL/Nexys4_Master.xdc rfile:../../../pg_Pipeline_Latest_Test.srcs/constrs_1/imports/VHDL/Nexys4_Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{/home/abhimanyu/Desktop/BISWAS FINAL/Pipelined Processor before  Mar 23/ANPPV_RISC_Pipelned_Processor.srcs/constrs_1/imports/VHDL/Nexys4_Master.xdc} rfile:../../../ANPPV_RISC_Pipelned_Processor.srcs/constrs_1/imports/VHDL/Nexys4_Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN E3 [get_ports clk]
 set_property src_info {type:XDC file:1 line:14 export:INPUT save:INPUT read:READ} [current_design]

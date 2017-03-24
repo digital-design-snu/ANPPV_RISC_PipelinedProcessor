@@ -1,8 +1,8 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2016.1 (win64) Build 1538259 Fri Apr  8 15:45:27 MDT 2016
-| Date         : Sun Aug 14 18:23:13 2016
-| Host         : Lenovo-PC running 64-bit major release  (build 9200)
+| Tool Version : Vivado v.2016.1 (lin64) Build 1538259 Fri Apr  8 15:45:23 MDT 2016
+| Date         : Thu Mar 23 22:24:39 2017
+| Host         : Hogwarts running 64-bit Linux Mint 17.1 Rebecca
 | Command      : report_control_sets -verbose -file TopModule_control_sets_placed.rpt
 | Design       : TopModule
 | Device       : xc7a100t
@@ -49,9 +49,8 @@ Table of Contents
 |  Clock Signal  |                  Enable Signal                 |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
 +----------------+------------------------------------------------+--------------------------------+------------------+----------------+
 |  clk_IBUF_BUFG |                                                | Buf23/OpcodeBufferOut[7]       |                4 |              5 |
-|  clk_IBUF_BUFG |                                                | Bbl/BB                         |                5 |              8 |
-|  clk_IBUF_BUFG | CCG3/S_AL                                      |                                |                7 |              8 |
-|  clk_IBUF_BUFG | IO/outRegs[0][7]_i_1_n_0                       |                                |                4 |              8 |
+|  clk_IBUF_BUFG | RegArr/Reg_Array[6][7]_i_1_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                4 |              8 |
+|  clk_IBUF_BUFG | StkPtr/SPReg[7]_i_1_n_0                        |                                |                5 |              8 |
 |  clk_IBUF_BUFG | RegArr/Reg_Array                               | RegArr/Reg_Array[0][7]_i_1_n_0 |                3 |              8 |
 |  clk_IBUF_BUFG | RegArr/Reg_Array[0][7]_i_2_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                1 |              8 |
 |  clk_IBUF_BUFG | RegArr/Reg_Array[1][7]_i_1_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                3 |              8 |
@@ -59,8 +58,9 @@ Table of Contents
 |  clk_IBUF_BUFG | RegArr/Reg_Array[3][7]_i_1_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                1 |              8 |
 |  clk_IBUF_BUFG | RegArr/Reg_Array[4][7]_i_1_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                2 |              8 |
 |  clk_IBUF_BUFG | RegArr/Reg_Array[5][7]_i_1_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                4 |              8 |
-|  clk_IBUF_BUFG | RegArr/Reg_Array[6][7]_i_1_n_0                 | RegArr/Reg_Array[0][7]_i_1_n_0 |                4 |              8 |
-|  clk_IBUF_BUFG | StkPtr/SPReg[7]_i_1_n_0                        |                                |                5 |              8 |
+|  clk_IBUF_BUFG | IO/outRegs[0][7]_i_1_n_0                       |                                |                4 |              8 |
+|  clk_IBUF_BUFG | CCG3/S_AL                                      |                                |                7 |              8 |
+|  clk_IBUF_BUFG |                                                | Bbl/BB                         |                5 |              8 |
 |  clk_IBUF_BUFG | MultPrtMem/blockMem_reg_r1_0_63_0_2_i_1_n_0    |                                |                6 |             24 |
 |  clk_IBUF_BUFG | MultPrtMem/blockMem_reg_r1_128_191_0_2_i_1_n_0 |                                |                6 |             24 |
 |  clk_IBUF_BUFG | MultPrtMem/blockMem_reg_r1_192_255_0_2_i_1_n_0 |                                |                6 |             24 |

@@ -296,36 +296,36 @@ MultiPortMem    MultPrtMem(
 
 
 OperandDecode1  OprDc1(
-	.E_IP(EIP),												// Input 	:: (ControlCodeGenerator2,.EIP)
-	.E_R0(ER0),												// Input 	:: (ControlCodeGenerator2,.ER0)
-	.E_RN(ERN),												// Input 	:: (ControlCodeGenerator2,.ERN)
-	.FLRN(RegFL_FLRN2),										// Input 	:: (RegisterFlags,.FlagOut2)
-	.L_R0(LR0),												// Input 	:: (ControlCodeGenerator4,.LR0)
-	.LRN(LRN),												// Input 	:: (ControlCodeGenerator4,.LRN)
-	.MEM_OpData(Mem2_OperandDecode1),						// Input 	:: (MultiPortMem,.dataOper)
-	.OF_OD1(OF_OperandDecode1),								// Input 	:: (Buffer3,.ALUBuffer3Out) : Connected to wire Buffer31_WB
-	.OpcodeCCG2(OpcodeBuffer2_Out[2:0]),					// Input 	:: (Buffer2,.OpcodeBufferOut)
-	.OpcodeCCG4(OpcodeBuffer3_Out[2:0]),					// Input 	:: (Buffer3,.OpcodeBuffer3Out)
-	.Operand1(OperandDecode1_Buffer21),						// Output 	:: (Program Counter,.UncomditionalBranch)	:: (Buffer2,.OperandDecode1)
-	.R0_Out(R0_Out),										// Input 	:: (RegisterArray,.R0_Out)
-	.readInIO(IO_OperandDecode1), 							// Input 	:: (Io_GPIB,.ReadInputs)
-	.S_OD(SOD),												// Input 	:: (ControlCodeGenerator2,.SOD)
-	.stackPointer(SP_Out)									// Input 	:: (StackPointer,.SP_Out)
+	.E_IP(EIP),								// Input 	:: (ControlCodeGenerator2,.EIP)
+	.E_R0(ER0),								// Input 	:: (ControlCodeGenerator2,.ER0)
+	.E_RN(ERN),								// Input 	:: (ControlCodeGenerator2,.ERN)
+	.FLRN(RegFL_FLRN2),						// Input 	:: (RegisterFlags,.FlagOut2)
+	.L_R0(LR0),								// Input 	:: (ControlCodeGenerator4,.LR0)
+	.LRN(LRN),								// Input 	:: (ControlCodeGenerator4,.LRN)
+	.MEM_OpData(Mem2_OperandDecode1),		// Input 	:: (MultiPortMem,.dataOper)
+	.OF_OD1(OF_OperandDecode1),				// Input 	:: (Buffer3,.ALUBuffer3Out) : Connected to wire Buffer31_WB
+	.OpcodeCCG2(OpcodeBuffer2_Out[2:0]),	// Input 	:: (Buffer2,.OpcodeBufferOut)
+	.OpcodeCCG4(OpcodeBuffer3_Out[2:0]),	// Input 	:: (Buffer3,.OpcodeBuffer3Out)
+	.Operand1(OperandDecode1_Buffer21),		// Output 	:: (Program Counter,.UncomditionalBranch)	:: (Buffer2,.OperandDecode1)
+	.R0_Out(R0_Out),						// Input 	:: (RegisterArray,.R0_Out)
+	.readInIO(IO_OperandDecode1), 			// Input 	:: (Io_GPIB,.ReadInputs)
+	.S_OD(SOD),								// Input 	:: (ControlCodeGenerator2,.SOD)
+	.stackPointer(SP_Out)					// Input 	:: (StackPointer,.SP_Out)
 );
 
 
 
 OperandDecode2   OprDc2(
-	.ER0(ER0),												// Input 	:: (ControlCodeGenerator2,.ER0)
-	.ERN(ERN),												// Input 	:: (ControlCodeGenerator2,.ERN)
-	.OpcodeCCG2(OpcodeBuffer1_Out[2:0]),					// Input 	:: (Buffer1,.OpcodeBuffer1Out)
-	.FLRN(RegFL_FLRN2),										// Input 	:: (RegisterFlags ,.FlagOut2)
-	.LR0(LR0),												// Input 	:: (ControlCodeGenerator4,.LR0)
-	.LRN(LRN),												// Input 	:: (ControlCodeGenerator4,.LRN)
-	.OF(OF_OperandDecode2),									// Input 	:: (Buffer3,.ALUBuffer3Out) : Connected to wire Buffer31_WB
-	.OpcodeCCG4(OpcodeBuffer3_Out[2:0]),					// Input 	:: (Buffer34,.OpcodeBuffer3_Out)
-	.RegIn(RA_OperandDecode2),								// Input 	:: (RegisterArray,.rnOut)
-	.toBuffer22(OperandDecode2_Buffer22)					// Output 	:: (Buffer2,.OperandDecode2) 
+	.ER0(ER0),								// Input 	:: (ControlCodeGenerator2,.ER0)
+	.ERN(ERN),								// Input 	:: (ControlCodeGenerator2,.ERN)
+	.OpcodeCCG2(OpcodeBuffer1_Out[2:0]),	// Input 	:: (Buffer1,.OpcodeBuffer1Out)
+	.FLRN(RegFL_FLRN2),						// Input 	:: (RegisterFlags ,.FlagOut2)
+	.LR0(LR0),								// Input 	:: (ControlCodeGenerator4,.LR0)
+	.LRN(LRN),								// Input 	:: (ControlCodeGenerator4,.LRN)
+	.OF(OF_OperandDecode2),					// Input 	:: (Buffer3,.ALUBuffer3Out) : Connected to wire Buffer31_WB
+	.OpcodeCCG4(OpcodeBuffer3_Out[2:0]),	// Input 	:: (Buffer34,.OpcodeBuffer3_Out)
+	.RegIn(RA_OperandDecode2),				// Input 	:: (RegisterArray,.rnOut)
+	.toBuffer22(OperandDecode2_Buffer22)	// Output 	:: (Buffer2,.OperandDecode2) 
 );
 
 

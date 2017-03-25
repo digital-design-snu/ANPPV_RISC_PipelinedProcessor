@@ -59,7 +59,7 @@ wire	     	FlagReg_Out;                                    // FlReg.FL to CndBr.
 wire	[3:0]	ALUModule_FlagReg;                              // Alu.flagArray to FLReg.inArray                      
 wire	[7:0]	ALUModule_Buffer31;                             // Alu.AluOut to Buf34.ALUOut
 wire	[7:0]	AS1_Mem2;										// AS1.addressOut to Mem.addressOper 
-wire	[7:0]	AS2_Mem3;                                       // AS2.addressOut toMem.addressWb
+wire	[7:0]	AS2_Mem3;                                       // AS2.addressOut to Mem.addressWb
 wire	[7:0]	Buffer21_Out;                                   // Buf23.Buffer21Out to CndBr.Buffer21, Alu.Buffer21
 wire	[7:0]	Buffer22_ALUModule;                             // Buf23.Buffer22Out to Alu.Buffer22
 wire	[7:0]	Buffer31_WB;									// Buffer3.ALUBuffer3Out to WB.Buffer3 
@@ -70,13 +70,13 @@ wire	[7:0]	OF_AS1 = Buffer31_WB;							// Buffer3.ALUBuffer3Out to AS1.Buffer32
 wire	[7:0]	OF_OperandDecode1 = Buffer31_WB;				// Buffer3.ALUBuffer3Out to OD1.OFOD1
 wire	[7:0]	OF_OperandDecode2 = Buffer31_WB;				// Buffer3.ALUBuffer3Out to OD1.OF
 wire	[7:0]	OFALU_ALUModule = Buffer31_WB;                  // Buffer3.ALUBuffer3Out to ALUModule.OF
-wire	[7:0]	OpcodeBuffer1_Out;								// Buffer1.OpcodeBuffer1Out to Buffer2.Opcode, CCG3.Opcode, OD2.OpcodeCCG2, RegFlags.rn2, RegArr.rdRegCell, IO.IOcellRD.
+wire	[7:0]	OpcodeBuffer1_Out;								// Buffer1.OpcodeBuffer1Out to Buffer2.Opcode, CCG3.Opcode, OD2.OpcodeCCG2, RegFlags.rn2, RegArr.rdRegCell, IO.IOcellRD,Bbl.ST2OP
 wire	[7:0]	OpcodeBuffer2_Out;                              // Buf23.OpcodeBufferOut to Buf34.OpcodeBuffer2, CCG4.opcode, FlReg.opcode, OperandDecode1.OpcodeCCG2, RegFl.rn3, Alu.S_AF, As1.OpcodeCCG2
 wire	[7:0]	OperandDecode1_Buffer21;						// OD1.Operand1 to Buffer2.OD1, PC.UncomditionalBranch
 wire	[7:0]	OperandDecode2_Buffer22;						// OD2.toBuffer22 to Buffer2.OD2
 wire	[7:0]	Output;                                         // WBMod.WB to Mem.dataWB, SP.SPIn, RegArr.WB_DataIn, IO.WriteOutputs
 wire	[7:0]	RA_OperandDecode2;								// RA.rnOut to OD2.RegA
-wire	[7:0]	SP_Out;   										// AS1,AS2,OperandDecode1
+wire	[7:0]	SP_Out;   										// SP.SP_Out to AS1,AS2,OperandDecode1
 wire 	[7:0] 	IR_AsyncDecode;									// USELESS
 wire 	[7:0] 	IR_Out; 										// IR.IRout to CCC1A.Opcode, CCG2.Opcode, Buffer1.IR
 wire 	[7:0] 	Mem1_IR;										// Mem.dataInst  to  IR.MemIR
@@ -136,32 +136,30 @@ AddressSelector1    As1(
    .PCBuffer1(PCBuffer1_Out),                            //    Input  :: (Buffer1,.PCBuffer1Out)
    .R0AddressIn(R0_Out),                                 //    Input  :: (RegisterArray, .R0_Out)
    .SOD(SOD),                                            //    Input  :: (ControlCodeGenerator2,.SOD)
-   .SPAddressIn(SP_Out)                                  //    Input  :: (Sp, .SPOut)
-   //.OFOF(OFOF),                                        
+   .SPAddressIn(SP_Out)                                  //    Input  :: (Sp, .SPOut)                                 
 );
 
 AddressSelector2    As2(
-	.addressOut(AS2_Mem3),
-	.DSP(DSP),
-	.R0AddressIn(R0_Out),
-	.SPAddressIn(SP_Out)
+	.addressOut(AS2_Mem3),      // output   ::  (MultPrtMem,.addressWb)
+	.DSP(DSP),                  // input    ::  (CCG4,.DSP_out)
+	.R0AddressIn(R0_Out),       // input    ::  (RegisterArray,.R0_Out)
+	.SPAddressIn(SP_Out)        // input    ::  (SP,.SP_Out)
 );
 
-Bubble              Bbl(
-	.BB(BB),
-	.BB2(BB2),
-	.BB3(BB3),
-	.ER0(ER0CCG1),
-	.ERN(ERNCCG1),
-	.ESP(ESP),
-	.ST2OP(OpcodeBuffer1_Out[2:0]),
-	.X2SP(CCG1_BubbleX),
-	.X4SP(CCG2_BubbleX),
-	.XR0(XR0),
-	.XRN(XRN),
-	.XSOD(CCG1_BubbleXSOD),
-	.XWR(CCG2_BubbleXWR)
-	//.LSP(LSPCCG2),
+Bubble  Bbl(
+	.BB(BB),                            // output   ::  (CCG2,.BB )(Buffer1,.BB)(PC,.BB)  
+	.BB2(BB2),                          // input    ::  (CCG2,.BB2)
+	.BB3(BB3),                          // input    ::  (CCG3,.BB3)
+	.ER0(ER0CCG1),                      // input    ::  (CCGA1,.ER_0)
+	.ERN(ERNCCG1),                      // input    ::  (CCGA1,.ER_N)
+	.ESP(ESP),                          // input    ::  (CCG2,.ESP)
+	.ST2OP(OpcodeBuffer1_Out[2:0]),     // input    ::  (Buffer1,.OpcodeBuffer1Out)
+	.X2SP(CCG1_BubbleX),                // input    ::  (CCC1A,.X2SP)
+	.X4SP(CCG2_BubbleX),                // input    ::  (CCG2,.X4SP)
+	.XR0(XR0),                          // input    ::  (CCG2,.XR0)
+	.XRN(XRN),                          // input    ::  (CCG2,.XRN)
+	.XSOD(CCG1_BubbleXSOD),             // input    ::  (CCGA1,.XSOD)
+	.XWR(CCG2_BubbleXWR)                // input    ::  (CCG2,.XWR)
 );
 
 Buffer1             Buf12(
@@ -186,20 +184,20 @@ Buffer2           Buf23(
 );
 
 Buffer3             Buf34(
-	.ALUBuffer3Out(Buffer31_WB),
-	.ALUOut(ALUModule_Buffer31),
-	.clk(clk),
-	.OpcodeBuffer2(OpcodeBuffer2_Out),
-	.OpcodeBuffer3Out(OpcodeBuffer3_Out),
-	.PCBuffer2(PCBuffer2_Out),
-	.PCBuffer3Out(PCBuffer3_WB)
+	.ALUBuffer3Out(Buffer31_WB),            // output   ::  (WB,.Buffer3)       :: This wire is also called OF_AS1,OF_OperandDecode1, OF_OperandDecode2, OFALU_ALUModule
+	.ALUOut(ALUModule_Buffer31),            // input    ::  (Alu,.AluOut)
+	.clk(clk),                              // input    ::  (Global Clock)
+	.OpcodeBuffer2(OpcodeBuffer2_Out),      // input    ::  (Buf23,.OpcodeBufferOut)
+	.OpcodeBuffer3Out(OpcodeBuffer3_Out),   // output   ::  (IO,.ioSel_WB)(RegArr,.WB_RegSel)(RegFl,.rnInput)(OprDc2,.OpcodeCCG4)(OprDc1,.OpcodeCCG4)(Buf34,.OpcodeBuffer3Out)(As1,.OpcodeCCG4)(Alu,.OpcodeCCG4)
+	.PCBuffer2(PCBuffer2_Out),              // input    ::  (Buf23,.PCBufferOut2)
+	.PCBuffer3Out(PCBuffer3_WB)             // output   ::  (WBMod,.PCBuffer3)
 );
 
 ConditionalBranch   CndBr(
-	.BrOut(ConditionalBranch_Branch),
-	.Buffer21(Buffer21_Out),
-	.FL(FlagReg_Out),
-	.PCBuffer2(PCBuffer2_Out)
+	.BrOut(ConditionalBranch_Branch),   // output   ::  (PrgCtr,.CondBranch)
+	.Buffer21(Buffer21_Out),            // input    ::  (Buf23,.Buffer21Out)
+	.FL(FlagReg_Out),                   // input    ::  (FlReg,.FL)
+	.PCBuffer2(PCBuffer2_Out)           // input    ::  (Buffer2,.PCBufferOut2)
 );    
 
 
@@ -414,6 +412,4 @@ WBModule            WBMod       (
 	.PCBuffer3(PCBuffer3_WB),	// Input :: (Buffer3, .PCBuffer3Out)
 	.WB(Output)					// Output :: (MultPrtMem, .dataWb) :: (StackPointer, .SPIn) :: (RegisterArray, .WB_DataIn)
 );
-
 endmodule
-

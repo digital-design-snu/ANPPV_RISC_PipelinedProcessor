@@ -11,7 +11,7 @@ module TopModule(
 
 wire  BB2;              // CCG2 to Bubble
 wire  BB3;				// CCG3 to Bubble
-wire  BB;				// CCG2 to Bubble, Buffer1, PC
+wire  BB;				// Bubble to CCG2, Buffer1, PC
 wire  CCG1_BubbleX;		// CCG1 to Bubble
 wire  CCG1_BubbleXSOD;	// CCG1 to Bubble
 wire  CCG2_BubbleX;		// CCG2 to Bubble
@@ -83,15 +83,15 @@ wire 	[7:0] 	Mem1_IR;										// Mem.dataInst  to  IR.MemIR
 wire 	[7:0] 	PC_Mem1;										// PC.toAS  to  Mem.addressInst  
 wire 	[7:0] 	PC_PCBuffer1; 									// PC.PCBuffer1  to Buffer1.PC
 wire 	[7:0] 	PCBuffer3_WB;                                   // Buf34.PCBuffer3Out to WBMod.PCBuffer3
-wire 	[7:0] 	OpcodeBuffer3_Out;					                // Buffer34.OpcodeBuffer3_Out to ALU.OpcodeCCG4 , AS1.OpcodeCC
-wire 	[7:0] 	PCBuffer1_Out;						                // Buffer1.PCBufferOut1 to Buffer2.PC , AddressSelector.PCBuffer1
-wire 	[7:0] 	PCBuffer2_Out;						                // Buffer2.PCBufferOut2 to Buffer3.PCBuffer2 , ConditionalBranch.PCBuffer2
-wire 	[7:0] 	R0_Out;							                    // RegisterArray.R0_Out to AS1.R0AddressIn, AS2.R0AddressIn , OperandDecode1.R0Out
-wire 	[7:0] 	RN_Out;							                    // UNUSED : RegisterArray.RN_Out
-wire 	RegFL_FLRN2;								                // RegFl.FlagOut2 to AS1.FLRN , OperandDecode1.FLRN , OperandDecode2.FLRN
-wire 	RegFL_FLRN3;								                // RegFl.FlagOut3 to ALU.FLRN
-wire 	SOD_CCG3;								                    // CCG3.SOD to ALU.SOD
-wire 	XR0_CCG3;								                    // CCG3.XR0 to ALU.XR0
+wire 	[7:0] 	OpcodeBuffer3_Out;					            // Buffer34.OpcodeBuffer3_Out to ALU.OpcodeCCG4 , AS1.OpcodeCC
+wire 	[7:0] 	PCBuffer1_Out;						            // Buffer1.PCBufferOut1 to Buffer2.PC , AddressSelector.PCBuffer1
+wire 	[7:0] 	PCBuffer2_Out;						            // Buffer2.PCBufferOut2 to Buffer3.PCBuffer2 , ConditionalBranch.PCBuffer2
+wire 	[7:0] 	R0_Out;							                // RegisterArray.R0_Out to AS1.R0AddressIn, AS2.R0AddressIn , OperandDecode1.R0Out
+wire 	[7:0] 	RN_Out;							                // UNUSED : RegisterArray.RN_Out
+wire 	RegFL_FLRN2;								            // RegFl.FlagOut2 to AS1.FLRN , OperandDecode1.FLRN , OperandDecode2.FLRN
+wire 	RegFL_FLRN3;								            // RegFl.FlagOut3 to ALU.FLRN
+wire 	SOD_CCG3;								                // CCG3.SOD to ALU.SOD
+wire 	XR0_CCG3;								                // CCG3.XR0 to ALU.XR0
 
 
 /*hardcoded wires end*/
@@ -117,26 +117,26 @@ ALUModule           Alu(                    // REview these comments later
    .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),                  //    input  ::  Buffer3               :: .OpcodeBuffer3Out
    .S_AF(OpcodeBuffer2_Out),                             //    input  ::  Buffer2               :: .OpcodeBufferOut
    .SAL(SAL),                                            //    input  ::  ControlCodeGenerator3 :: .S_AL
-   .SOD(SOD_CCG3),                                        //    input  ::  ControlCodeGenerator3 :: .SOD
-   .XR0(XR0_CCG3)                                       //    input  ::  ControlCodeGenerator3 :: .XR0
+   .SOD(SOD_CCG3),                                       //    input  ::  ControlCodeGenerator3 :: .SOD
+   .XR0(XR0_CCG3)                                        //    input  ::  ControlCodeGenerator3 :: .XR0
 );
 
 AddressSelector1    As1(
-   .addressOut(AS1_Mem2),                                 //    Output :: ()
-   .buffer32(OF_AS1),                                    //    input  :: ()
-   .ER0(ER0),                                            //    input  :: (ControlCodeGenerator2,.ER0)
-   .ERN(ERN),                                            //    input  :: (ControlCodeGenerator2,.ERN)
-   .ESP(ESP),                                            //    input  :: (ControlCodeGenerator2,.ESP)
-   .FLRN(RegFL_FLRN2),                                   //    input  :: (RegisterFlags,.flagOut2)
-   .LR0(LR0),                                            //    input  :: (ControlCodeGenerator4,.LR0)
-   .LRN(LRN),                                            //    input  :: (ControlCodeGenerator4,.LRN)
-   .LSP(LSP),                                            //    input  :: (ControlCodeGenerator4,.LSP)
-   .OpcodeCCG2(OpcodeBuffer2_Out[2:0]),                  //    input  :: (Buffer2,.OpcodeBufferOut)
-   .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),                  //    input  :: (Buffer3,.OpcodeBuffer3Out)
-   .PCBuffer1(PCBuffer1_Out),                            //    input  :: (Buffer1,.PCBuffer1Out)
-   .R0AddressIn(R0_Out),                                 //    input  :: ()
-   .SOD(SOD),                                            //    input  :: (ControlCodeGenerator2,.SOD)
-   .SPAddressIn(SP_Out)                                 //    input  :: ()
+   .addressOut(AS1_Mem2),                                //    Output :: (mem, .addressOper)
+   .buffer32(OF_AS1),                                    //    Input  :: (Alu, .AluBuffer3Out)
+   .ER0(ER0),                                            //    Input  :: (ControlCodeGenerator2,.ER0)
+   .ERN(ERN),                                            //    Input  :: (ControlCodeGenerator2,.ERN)
+   .ESP(ESP),                                            //    Input  :: (ControlCodeGenerator2,.ESP)
+   .FLRN(RegFL_FLRN2),                                   //    Input  :: (RegisterFlags,.flagOut2)
+   .LR0(LR0),                                            //    Input  :: (ControlCodeGenerator4,.LR0)
+   .LRN(LRN),                                            //    Input  :: (ControlCodeGenerator4,.LRN)
+   .LSP(LSP),                                            //    Input  :: (ControlCodeGenerator4,.LSP)
+   .OpcodeCCG2(OpcodeBuffer2_Out[2:0]),                  //    Input  :: (Buffer2,.OpcodeBufferOut)
+   .OpcodeCCG4(OpcodeBuffer3_Out[2:0]),                  //    Input  :: (Buffer3,.OpcodeBuffer3Out)
+   .PCBuffer1(PCBuffer1_Out),                            //    Input  :: (Buffer1,.PCBuffer1Out)
+   .R0AddressIn(R0_Out),                                 //    Input  :: (RegisterArray, .R0_Out)
+   .SOD(SOD),                                            //    Input  :: (ControlCodeGenerator2,.SOD)
+   .SPAddressIn(SP_Out)                                  //    Input  :: (Sp, .SPOut)
    //.OFOF(OFOF),                                        
 );
 
@@ -165,24 +165,24 @@ Bubble              Bbl(
 );
 
 Buffer1             Buf12(
-	.BB(BB),
-	.clk(clk),
-	.IR(IR_Out),
-	.OpcodeBuffer1Out(OpcodeBuffer1_Out),
-	.PC(PC_PCBuffer1),
-	.PCBuffer1Out(PCBuffer1_Out)
+	.BB(BB),											// Input    :: (Bubble, .BB)
+	.clk(clk),											// Input    :: Global Clock
+	.IR(IR_Out),										// Input    :: (IR, .IROut)
+	.OpcodeBuffer1Out(OpcodeBuffer1_Out),				// Output 	:: (Bubble, .ST2OP) 	:: (Buffer2, .Opcode) 	:: (CCG3, .opcode) 	:: (OD2, .OpcodeCCG2) 	:: (RegisterFlags, .rn2) 	:: (RegisterArray, .RD_RegSel) 	:: (Io_GPIB, .ioSel_RD)
+	.PC(PC_PCBuffer1),									// Input    :: (PC, .PCBuffer1)
+	.PCBuffer1Out(PCBuffer1_Out)						// Output 	:: (AS1, .PCBuffer1)	:: (Buffer2, .PC)
 );
 
 Buffer2           Buf23(
-	.Buffer21Out(Buffer21_Out),
-	.Buffer22Out(Buffer22_ALUModule),
-	.clk(clk),
-	.Opcode(OpcodeBuffer1_Out),
-	.OpcodeBufferOut(OpcodeBuffer2_Out),
-	.OperandDecode1(OperandDecode1_Buffer21),
-	.OperandDecode2(OperandDecode2_Buffer22),
-	.PC(PCBuffer1_Out),
-	.PCBufferOut2(PCBuffer2_Out)
+	.Buffer21Out(Buffer21_Out),							// Output 	:: (Alu, .Buffer21) 	:: (CndBr, .Buffer21)
+	.Buffer22Out(Buffer22_ALUModule),					// Output 	:: (Alu, .Buffer22)
+	.clk(clk),											// Input 	:: Global Clock
+	.Opcode(OpcodeBuffer1_Out)I,						// Input 	:: (Buffer1, .OpcodeBuffer1Out)
+	.OpcodeBufferOut(OpcodeBuffer2_Out),				// Output 	:: (Buffer3, .OpcodeBuffer2) 	:: (CCG4, .opcode) :: (FlagRegister, .opCode) 	:: (OD1, .OpcodeCCG2) 	:: (RegisterFlags, .rn3) 	:: (Alu, .S_AF) 	:: (As1, .OpcodeCCG2) 
+	.OperandDecode1(OperandDecode1_Buffer21),			// Input 	:: (OD1, .Operand1)
+	.OperandDecode2(OperandDecode2_Buffer22),			// Input 	:: (OD2, .toBuffer22)
+	.PC(PCBuffer1_Out),									// Input 	:: (Buffer1, .PCBuffer1Out)	
+	.PCBufferOut2(PCBuffer2_Out)						// Output 	:: (Buffer3, .PCBuffer2) 	:: (CndBr, .PCBuffer2)
 );
 
 Buffer3             Buf34(

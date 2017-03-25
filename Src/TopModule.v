@@ -202,14 +202,14 @@ ConditionalBranch   CndBr(
 
 
 ControlCodeGenerator1Async CCGA1(
-	.DIPC(DIPC),
-	.E_R0(ER0CCG1), //isolated to CCG1
-	.ERN(ERNCCG1),
-	.ESP(ESPCCG1),
-	.I_PC(IPC),
-	.opcode(IR_Out),
-	.X2SP(CCG1_BubbleX),
-	.XSOD(CCG1_BubbleXSOD)
+	.DIPC(DIPC),										// Output 	:: (PC, .DIPC) 
+	.E_R0(ER0CCG1), //isolated to CCG1 					// Output 	:: (Bubble, .ER0)
+	.ERN(ERNCCG1),										// Output 	:: (Bubble, .ERN)
+	.ESP(ESPCCG1),										// USELESS  Output 	:: ()
+	.I_PC(IPC),											// Output 	:: (PC, .IPC)
+	.opcode(IR_Out),									// Input 	:: (IR, .IROut) 
+	.X2SP(CCG1_BubbleX),								// Output 	:: (Bubble, .X2SP)
+	.XSOD(CCG1_BubbleXSOD)								// Output 	:: (Bubble, .XSOD)
 );
 
 ControlCodeGenerator2 CCG2(

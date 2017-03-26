@@ -217,7 +217,7 @@ ControlCodeGenerator2 CCG2(
     .BB2(BB2),                                  // Output :: (Bubble,.BB2)
     .clk(clk),                                  // Input  :: GLOBAL Clk
     .BB(BB),                                    // Input  :: (Bubble,.BB)
-    //.EFL(EFL2),                                 // Output :: (ProgramCounter,.EFL2)
+    //.EFL(EFL2),                               // Output :: (ProgramCounter,.EFL2)
     .EIP(EIP),                                  // Output :: (OperandDecode1,.E_IP) :: (IO_GPIB,Eip)
     .ER0(ER0),                                  // Output :: (AddressSelector1,.ER0) :: (RegisterArray,.E_R0) :: (OperandDecode1,.E_R0) :: (OperandDecode2,.ER0) :: (ControlCodeGenerator3,.E_R0_CCG2)
     .ERN(ERN),                                  // Output :: (AddressSelector1,.ERN) :: (RegisterArray,.E_RN) :: (OperandDecode1,.E_RN) :: (OperandDecode2,.ERN) :: (ControlCodeGenerator3,.E_RN_CCG2)
@@ -235,7 +235,7 @@ ControlCodeGenerator2 CCG2(
 );      
         
 ControlCodeGenerator3 CCG3(                                                                 
-    //.BB3(BB3),                                  // Output :: (Bubble,.BB3)
+    //.BB3(BB3),                                // Output :: (Bubble,.BB3)
     .clk(clk),                                  // GLOBAL Clk
     .SOD_CCG2(SOD),                             // Input  :: (ControlCodeGenerator2,.SOD)
     .SOD(SOD_CCG3),                             // Output :: (ALUModule,.SOD)

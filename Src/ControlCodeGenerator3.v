@@ -7,12 +7,12 @@ module ControlCodeGenerator3(
     input E_RN_CCG2,    //Enable RN from second stage
     input XR0_CCG2,     //Load R0 from 4th stage :: from CCG2
     input SOD_CCG2,     //Select OD from 2nd stage
-    output BB3,         //Hold the first stage
+    output BB3,         //Hold the first stage :: same as EFL
     output reg E_R0,    //Enable R0 :: passing it through from CCG2
     output reg E_RN,    //Enable RN :: passing it through from CCG2
     output reg XR0,     //Load R0 from 4th stage :: passing it through from CCG2
     output reg SOD,     //Select OD :: passing it through from CCG2111
-    output EFL,         //Enable Flag
+    output EFL,         //Enable Flag :: same as BB3
     output S_AL,        //Select ALU Output to go to 4th stage
     output LPC          //Load PC
     );

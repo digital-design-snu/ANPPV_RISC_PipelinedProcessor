@@ -10,7 +10,7 @@ module TopModule(
 /*Control Code Wire Instantiations start*/
 
 wire  BB2;                                      // CCG2 to Bubble
-wire  BB3;                                      // CCG3 to Bubble
+//wire  BB3;                                    // CCG3 to Bubble
 wire  BB;                                       // Bubble to CCG2, Buffer1, PC
 wire  CCG1_BubbleX;                             // CCG1 to Bubble
 wire  CCG1_BubbleXSOD;                          // CCG1 to Bubble
@@ -18,8 +18,8 @@ wire  CCG2_BubbleX;                             // CCG2 to Bubble
 wire  CCG2_BubbleXWR;                           // CCG2 to Bubble
 wire  DIPC;                                     // CCG1A to PC
 wire  DSP;                                      // CCG4 to AS2, SP, WBmodule
-wire  EFL2;                                     // CCG2 to PC
-wire  EFL;                                      // CCG3 to PC 
+//wire  EFL2;                                   // CCG2 to PC
+wire  EFL;                                      // CCG3 to PC, Bubble
 wire  EIP;                                      // CCG2 to OD1, IO
 wire  ER0;                                      // CCG2 to AS1, RegArr, OD1, OD2, CCG3
 wire  ER0_CCG3;                                 // CCG3 to ALU
@@ -29,9 +29,9 @@ wire  ERN_CCG3;                                 // CCG3 to ALU *UNDERSTAND-- ALU
 wire  ERNCCG1;                                  // CCG1A to Bubble
 wire  ERNCCG4;                                  // CCG4 to WBmodule
 wire  ESP;                                      // CCG2 to AS1, Bubble 
-wire  ESPCCG1;                                  // USELESS (CCG1A to nothing)
+//wire  ESPCCG1;                                // USELESS (CCG1A to nothing)
 wire  FLR0;                                     // CCG2 to RegFlags *OFOF operand forward stage2 tells us if reg used in future, helping fwding*
-wire  FLRN;                                     // USELESS !!!  (CCG4 to nowhere)
+//wire  FLRN;                                   // USELESS !!!  (CCG4 to nowhere)
 wire  IPC;                                      // CCG1A to PC
 wire  ISP;                                      // CCG2 to SP
 wire  LOP;                                      // CCG4 to IO
@@ -40,7 +40,7 @@ wire  LPC3;                                     // CCG3 to PC
 wire  LR0;                                      // CCG4 to ALU, AS1, OD1, OD2, RegFlag, RegArr
 wire  LRN;                                      // CCG4 to ALU, AS1, OD1, OD2, RegFlag, RegArr
 wire  LSP;                                      // CCG4 to AS1, SP
-wire  LSPCCG2;                                  // USELESS (CCG2 to Nothing Formerly Bubble)
+//wire  LSPCCG2;                                // USELESS (CCG2 to Nothing Formerly Bubble)
 wire  SAL;                                      // CCG3 to ALU, FlagReg
 wire  SOD;                                      // CCG2 to AS1, CCG3, OD1
 wire  WR;                                       // CCG4 to Mem
@@ -77,7 +77,7 @@ wire    [7:0]   OperandDecode2_Buffer22;        // OD2.toBuffer22 to Buffer2.OD2
 wire    [7:0]   Output;                         // WBMod.WB to Mem.dataWB, SP.SPIn, RegArr.WB_DataIn, IO.WriteOutputs
 wire    [7:0]   RA_OperandDecode2;              // RA.rnOut to OD2.RegA
 wire    [7:0]   SP_Out;                         // SP.SP_Out to AS1,AS2,OperandDecode1
-wire    [7:0]   IR_AsyncDecode;                 // USELESS
+//wire    [7:0]   IR_AsyncDecode;               // USELESS
 wire    [7:0]   IR_Out;                         // IR.IRout to CCC1A.Opcode, CCG2.Opcode, Buffer1.IR
 wire    [7:0]   Mem1_IR;                        // Mem.dataInst  to  IR.MemIR
 wire    [7:0]   PC_Mem1;                        // PC.toAS  to  Mem.addressInst  
@@ -87,7 +87,7 @@ wire    [7:0]   OpcodeBuffer3_Out;              // Buffer34.OpcodeBuffer3_Out to
 wire    [7:0]   PCBuffer1_Out;                  // Buffer1.PCBufferOut1 to Buffer2.PC , AddressSelector.PCBuffer1
 wire    [7:0]   PCBuffer2_Out;                  // Buffer2.PCBufferOut2 to Buffer3.PCBuffer2 , ConditionalBranch.PCBuffer2
 wire    [7:0]   R0_Out;                         // RegisterArray.R0_Out to AS1.R0AddressIn, AS2.R0AddressIn , OperandDecode1.R0Out
-wire    [7:0]   RN_Out;                         // UNUSED : RegisterArray.RN_Out
+//wire    [7:0]   RN_Out;                       // Useless : RegisterArray.RN_Out
 wire    RegFL_FLRN2;                            // RegFl.FlagOut2 to AS1.FLRN , OperandDecode1.FLRN , OperandDecode2.FLRN
 wire    RegFL_FLRN3;                            // RegFl.FlagOut3 to ALU.FLRN
 wire    SOD_CCG3;                               // CCG3.SOD to ALU.SOD
@@ -149,7 +149,7 @@ AddressSelector2    As2(
 Bubble  Bbl(
     .BB(BB),                                    // output   ::  (CCG2,.BB )(Buffer1,.BB)(PC,.BB)  
     .BB2(BB2),                                  // input    ::  (CCG2,.BB2)
-    .BB3(BB3),                                  // input    ::  (CCG3,.BB3)
+    .BB3(EFL),                                  // input    ::  (CCG3,.EFL)
     .ER0(ER0CCG1),                              // input    ::  (CCGA1,.ER_0)
     .ERN(ERNCCG1),                              // input    ::  (CCGA1,.ER_N)
     .ESP(ESP),                                  // input    ::  (CCG2,.ESP)
@@ -205,7 +205,7 @@ ControlCodeGenerator1Async CCGA1(
     .DIPC(DIPC),                                // Output   :: (PC, .DIPC) 
     .E_R0(ER0CCG1), //isolated to CCG1          // Output   :: (Bubble, .ER0)
     .ERN(ERNCCG1),                              // Output   :: (Bubble, .ERN)
-    .ESP(ESPCCG1),                              // USELESS  Output  :: ()
+    //.ESP(ESPCCG1),                            // USELESS  Output  :: ()
     .I_PC(IPC),                                 // Output   :: (PC, .IPC)
     .opcode(IR_Out),                            // Input    :: (IR, .IROut) 
     .X2SP(CCG1_BubbleX),                        // Output   :: (Bubble, .X2SP)
@@ -217,7 +217,7 @@ ControlCodeGenerator2 CCG2(
     .BB2(BB2),                                  // Output :: (Bubble,.BB2)
     .clk(clk),                                  // Input  :: GLOBAL Clk
     .BB(BB),                                    // Input  :: (Bubble,.BB)
-    .EFL(EFL2),                                 // Output :: (ProgramCounter,.EFL2)
+    //.EFL(EFL2),                                 // Output :: (ProgramCounter,.EFL2)
     .EIP(EIP),                                  // Output :: (OperandDecode1,.E_IP) :: (IO_GPIB,Eip)
     .ER0(ER0),                                  // Output :: (AddressSelector1,.ER0) :: (RegisterArray,.E_R0) :: (OperandDecode1,.E_R0) :: (OperandDecode2,.ER0) :: (ControlCodeGenerator3,.E_R0_CCG2)
     .ERN(ERN),                                  // Output :: (AddressSelector1,.ERN) :: (RegisterArray,.E_RN) :: (OperandDecode1,.E_RN) :: (OperandDecode2,.ERN) :: (ControlCodeGenerator3,.E_RN_CCG2)
@@ -225,7 +225,7 @@ ControlCodeGenerator2 CCG2(
     .FLR0(FLR0),                                // Output :: (RegisterFlags,.FLR0)
     .ISP(ISP),                                  // Output :: (StackPointer,.ISP)
     .LPC(LPC2),                                 // Output :: (ProgramCounter,.LPC2)
-    .LSP(LSPCCG2),                              // USELESS
+    //.LSP(LSPCCG2),                            // USELESS
     .opcode(IR_Out),                            // Input  :: (IR,.IR_Out)
     .SOD(SOD),                                  // Output :: (AddressSelector1,.SOD)  :: (OperandDecode1,.S_OD) :: (ControlCodeGenerator3,.SOD_CCG2)
     .X4SP(CCG2_BubbleX),                        // Output :: (Bubble,.X4SP)
@@ -235,7 +235,7 @@ ControlCodeGenerator2 CCG2(
 );      
         
 ControlCodeGenerator3 CCG3(                                                                 
-    .BB3(BB3),                                  // Output :: (Bubble,.BB3)
+    //.BB3(BB3),                                  // Output :: (Bubble,.BB3)
     .clk(clk),                                  // GLOBAL Clk
     .SOD_CCG2(SOD),                             // Input  :: (ControlCodeGenerator2,.SOD)
     .SOD(SOD_CCG3),                             // Output :: (ALUModule,.SOD)
@@ -243,7 +243,7 @@ ControlCodeGenerator3 CCG3(
     .E_R0_CCG2(ER0),                            // Input  :: (ControlCodeGenerator2,.ER0)
     .E_RN(ERN_CCG3),                            // Output :: (ALUModule,.ERN)
     .E_RN_CCG2(ERN),                            // Input  :: (ControlCodeGenerator2,.ERN)
-    .EFL(EFL),                                  // Output :: (ProgramCounter,.EFL)
+    .EFL(EFL),                                  // Output :: (ProgramCounter,.EFL)(Bubble,.BB3)
     .LPC(LPC3),                                 // Output :: (ProgramCounter,.LPC3)
     .opcode(OpcodeBuffer1_Out),                 // Input  :: (Buffer1,.OpcodeBuffer1Out)
     .S_AL(SAL),                                 // Output :: (ALUModule,.SAL) :: (FlagRegister,.S_AL)
@@ -256,7 +256,7 @@ ControlCodeGenerator4 CCG4(
     .clk(clk),                                  // Input  :: GLOBAL Clk 
     .DSP_out(DSP),                              // Output :: (StackPointer,.DSP) :: (WBModule,.DSP) :: (AddressSelector2,.DSP)
     .ERN(ERNCCG4),                              // Output :: (WBModule,.ERN)                                                    
-    .FLRN(FLRN),                                // Output :: NOT MAPPED USELESS                                             
+    //.FLRN(FLRN),                              // Output :: NOT MAPPED USELESS                                             
     .LOP(LOP),                                  // Output :: (IO_GPIB,.Lop)                                         
     .LR0(LR0),                                  // Output :: (OperandDecode1,.L_R0) :: (OperandDecode2,.LR0) :: (RegisterArray,.L_R0) :: (RegisterFlags,.LR0) :: (ALUModule,.LR0) :: (AddressSelector1,.LR0)
     .LRN(LRN),                                  // Output :: (OperandDecode1,.L_RN) :: (OperandDecode2,.LRN) :: (RegisterArray,.L_RN) :: (RegisterFlags,.LRN) :: (ALUModule,.LRN) :: (AddressSelector1,.LRN)
@@ -337,7 +337,7 @@ ProgramCounter   PrgCtr(
     .CondBranch(ConditionalBranch_Branch),      //  Input   ::  (ConditionalBranch, .BrOut)
     .DIPC(DIPC),                                //  Input   ::  (ControlCodeGenerator1Async, .DIPC)
     .EFL(EFL),                                  //  Input   ::  (ControlCodeGenerator3, .EFL)
-    .EFL2(EFL2),                                //  Input   ::  (ControlCodeGenerator2, .EFL)
+    //.EFL2(EFL2),                              //  Input   ::  (ControlCodeGenerator2, .EFL)
     .IPC(IPC),                                  //  Input   ::  (ControlCodeGenerator1Async, .I_PC)
     .LPC2(LPC2),                                //  Input   ::  (ControlCodeGenerator2, .LPC)
     .LPC3(LPC3),                                //  Input   ::  (ControlCodeGenerator3, .LPC)

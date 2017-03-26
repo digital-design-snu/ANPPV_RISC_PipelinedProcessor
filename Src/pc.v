@@ -8,7 +8,7 @@ input           LPC2,           //Load PC :: CCG2 :: UncondBranch
 input           LPC3,           //Load PC :: CCG3 :: CondBranch
 input           BB,             //BB input from BB module
 input           EFL,            //Enable Flag from 3rd stage
-input           EFL2,           //Enable Flag from 2nd stage
+//input           EFL2,         //Enable Flag from 2nd stage :: is always 0
 input   [7:0]   UncondBranch,   //Address of UncondBranch from 2nd stage R0
 input   [7:0]   CondBranch,     //Address of condBranch from 3rd stage R0
 output	[7:0]	PCBuffer1,      //output to PCBuffer1
@@ -25,7 +25,7 @@ end
 wire sIPC=((IPC&&(~BB))|| LPC);
 wire sDIPC=((DIPC&&(~BB))|| LPC);
 
-assign branch = (EFL || EFL2)?CondBranch:UncondBranch;
+assign branch = (EFL)?CondBranch:UncondBranch;
 
 assign PCBuffer1 = (sDIPC)?((sIPC)?branch:PCReg+2):((sIPC)?PCReg+1:PCReg);
 

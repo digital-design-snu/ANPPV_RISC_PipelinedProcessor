@@ -93,6 +93,7 @@ wire    RegFL_FLRN3;                            // RegFl.FlagOut3 to ALU.FLRN
 wire    SOD_CCG3;                               // CCG3.SOD to ALU.SOD
 wire    XR0_CCG3;                               // CCG3.XR0 to ALU.XR0
 
+wire WR_CCG3_CCG4;                              // CCG2.WR
 
 /*hardcoded wires end*/
 
@@ -217,10 +218,11 @@ ControlCodeGenerator2 CCG2(
     .BB2(BB2),                                  // Output :: (Bubble,.BB2)
     .clk(clk),                                  // Input  :: GLOBAL Clk
     .BB(BB),                                    // Input  :: (Bubble,.BB)
-    //.EFL(EFL2),                                 // Output :: (ProgramCounter,.EFL2)
+    //.EFL(EFL2),                               // Output :: (ProgramCounter,.EFL2)
     .EIP(EIP),                                  // Output :: (OperandDecode1,.E_IP) :: (IO_GPIB,Eip)
     .ER0(ER0),                                  // Output :: (AddressSelector1,.ER0) :: (RegisterArray,.E_R0) :: (OperandDecode1,.E_R0) :: (OperandDecode2,.ER0) :: (ControlCodeGenerator3,.E_R0_CCG2)
     .ERN(ERN),                                  // Output :: (AddressSelector1,.ERN) :: (RegisterArray,.E_RN) :: (OperandDecode1,.E_RN) :: (OperandDecode2,.ERN) :: (ControlCodeGenerator3,.E_RN_CCG2)
+    .ERNCCG1(ERNCCG1),                          // Input  :: (ControlCodeGenerator1Async,.ERN)    
     .ESP(ESP),                                  // Output :: (AddressSelector1,.ESP) :: (Bubble,.ESP)
     .FLR0(FLR0),                                // Output :: (RegisterFlags,.FLR0)
     .ISP(ISP),                                  // Output :: (StackPointer,.ISP)
@@ -231,7 +233,9 @@ ControlCodeGenerator2 CCG2(
     .X4SP(CCG2_BubbleX),                        // Output :: (Bubble,.X4SP)
     .XR0(XR0),                                  // Output :: (Bubble,.XR0) :: (ControlCodeGenerator3,.XR0_CCG2)
     .XRN(XRN),                                  // Output :: (Bubble,.XRN)
-    .XWR(CCG2_BubbleXWR)                        // Output :: (Bubble,.XWR)
+    .XWR(CCG2_BubbleXWR),                       // Output :: (Bubble,.XWR)
+    .SODCCG1(CCG1_BubbleXSOD),                  // Input  :: (ControlCodeGenerator1Async,.XSOD)
+    .ESPCCG1(CCG1_BubbleX)                      // Input  :: (ControlCodeGenerator1Async,.X2SP)
 );      
         
 ControlCodeGenerator3 CCG3(                                                                 
@@ -248,9 +252,10 @@ ControlCodeGenerator3 CCG3(
     .opcode(OpcodeBuffer1_Out),                 // Input  :: (Buffer1,.OpcodeBuffer1Out)
     .S_AL(SAL),                                 // Output :: (ALUModule,.SAL) :: (FlagRegister,.S_AL)
     .XR0(XR0_CCG3),                             // Output :: (ALUModule,.XR0) 
-    .XR0_CCG2(XR0)                              // Input  :: (ControlCodeGenerator2,.XR0)                   
-);      
-        
+    .XR0_CCG2(XR0),                             // Input  :: (ControlCodeGenerator2,.XR0)
+    .WRCCG3(CCG2_BubbleXWR),                    // Input  :: (ControlCodeGenerator2,.XWR)
+    .WR(WR_CCG3_CCG4)                           // Output :: (ControlCodeGenerator4,.WRCCG3)
+);       
         
 ControlCodeGenerator4 CCG4(                     
     .clk(clk),                                  // Input  :: GLOBAL Clk 
@@ -263,7 +268,8 @@ ControlCodeGenerator4 CCG4(
     .LSP(LSP),                                  // Output :: (StackPointer,.LSP) :: (AddressSelector1,.LSP)                                             
     .opcode(OpcodeBuffer2_Out),                 // Intput :: (Buffer2 , .OpcodeBufferOut)                                                           
     .WR(WR),                                    // Output :: (MultiPortMem ,.writeEn)                                                               
-    .FL(FlagReg_Out)                            // Input  :: (FlagRegister,.FL) 
+    .FL(FlagReg_Out),                           // Input  :: (FlagRegister,.FL)
+    .WRCCG3(WR_CCG3_CCG4)                       // Input  :: (ControlCodeGenerator3,.WRCCG3)    
 );              
     
     

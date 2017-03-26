@@ -239,7 +239,7 @@ ControlCodeGenerator2 CCG2(
 );      
         
 ControlCodeGenerator3 CCG3(                                                                 
-    //.BB3(BB3),                                  // Output :: (Bubble,.BB3)
+    //.BB3(BB3),                                // Output :: (Bubble,.BB3)
     .clk(clk),                                  // GLOBAL Clk
     .SOD_CCG2(SOD),                             // Input  :: (ControlCodeGenerator2,.SOD)
     .SOD(SOD_CCG3),                             // Output :: (ALUModule,.SOD)

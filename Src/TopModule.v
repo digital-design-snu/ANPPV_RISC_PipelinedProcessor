@@ -253,7 +253,7 @@ ControlCodeGenerator3 CCG3(
     .S_AL(SAL),                                 // Output :: (ALUModule,.SAL) :: (FlagRegister,.S_AL)
     .XR0(XR0_CCG3),                             // Output :: (ALUModule,.XR0) 
     .XR0_CCG2(XR0),                             // Input  :: (ControlCodeGenerator2,.XR0)
-    .WRCCG3(CCG2_BubbleXWR),                    // Input  :: (ControlCodeGenerator2,.XWR)
+    .WRCCG2(CCG2_BubbleXWR),                    // Input  :: (ControlCodeGenerator2,.XWR)
     .WR(WR_CCG3_CCG4)                           // Output :: (ControlCodeGenerator4,.WRCCG3)
 );       
         

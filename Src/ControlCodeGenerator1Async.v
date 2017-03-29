@@ -16,7 +16,9 @@ module ControlCodeGenerator1Async(
     initial
         controlBits = 0;
     
-    assign {I_PC,DIPC,E_R0,ERN,/*ESP,*/X2SP,XSOD} = controlBits ;
+    // assign {I_PC,DIPC,E_R0,ERN,/*ESP,*/X2SP,XSOD} = controlBits ;
+    assign {I_PC,DIPC,E_R0,ERN,X2SP,XSOD} = controlBits ;
+
     always@(opcode) begin
         casex (opcode)
             8'b0000_0000 : controlBits = 6'b100000;   // 0-ESP NOP

@@ -29,7 +29,7 @@ module ControlCodeGenerator2(
     
     assign opcodeBubble = (BB)?8'h00:opcode;
     initial begin
-            controlBits = 10'b000_00000_000; // 14-13 EFL 15-14 LSP
+            controlBits = 0; // 14-13 EFL 15-14 LSP
             ERN = 0;
             SOD = 0;
             ESP = 0;

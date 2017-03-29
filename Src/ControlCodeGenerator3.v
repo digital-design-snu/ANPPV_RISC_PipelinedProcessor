@@ -8,12 +8,16 @@ module ControlCodeGenerator3(
     input XR0_CCG2,     //Load R0 from 4th stage :: from CCG2
     input SOD_CCG2,     //Select OD from 2nd stage
     input WRCCG2,
-    //output BB3,       // DELETE - DUPLICATE SIGNAL  //Hold the first stage :: same as EFL
+    input XRNCCG2,
+    input ISPCCG2,
+        //output BB3,       // DELETE - DUPLICATE SIGNAL  //Hold the first stage :: same as EFL
+    output reg RN,
     output reg E_R0,    //Enable R0 :: passing it through from CCG2
     output reg E_RN,    //Enable RN :: passing it through from CCG2
     output reg XR0,     //Load R0 from 4th stage :: passing it through from CCG2
     output reg SOD,     //Select OD :: passing it through from CCG2111
     output reg WR,
+    output reg ISP,
     output EFL,         //Enable Flag :: same as BB3
     output S_AL,        //Select ALU Output to go to 4th stage
     output LPC          //Load PC
@@ -27,28 +31,30 @@ module ControlCodeGenerator3(
         XR0  = 0;
         SOD = 0; 
         WR = 0;
+        RN = 0;
+        ISP = 0;
     end
     
-    assign {EFL,/*BB3,*/S_AL,LPC} = controlBits;
+
+    // assign {EFL,/*BB3,*/S_AL,LPC} = controlBits;
+    assign {EFL,S_AL,LPC} = controlBits;
     
     always @(posedge clk) begin
+        RN = XRNCCG2;
         WR = WRCCG2;
+        XR0 = XR0_CCG2;
+        SOD=SOD_CCG2;
+        E_RN = E_RN_CCG2;
+        ISP = ISPCCG2;
     end
 
     always@(posedge clk) begin
-        if(E_R0_CCG2 && (opcode!= 8'b0111_0xxx || opcode == 8'b0111_0000) && opcode!=8'b0001_0xxx) E_R0 = 1;
-        else E_R0 = 0;
-        end
-    always@(posedge clk) begin
-        XR0=XR0_CCG2;
-        end
-    always@(posedge clk) begin
-        SOD=SOD_CCG2;
+        if(E_R0_CCG2 && (opcode!= 8'b0111_0xxx || opcode == 8'b0111_0000) && opcode!=8'b0001_0xxx)
+            E_R0 = 1;
+        else
+            E_R0 = 0;
     end
-    always@(posedge clk) begin
-        if(E_RN_CCG2) E_RN = 1;
-        else E_RN = 0;
-        end
+
         
     always@(posedge clk) begin
         casex(opcode) 
@@ -95,6 +101,6 @@ module ControlCodeGenerator3(
             8'b1110_1xxx : controlBits = 3'b010;   // 0 - BB3 : XRI <rn><od>
             8'b1111_0xxx : controlBits = 3'b000;   // 0 - BB3 : INA <pn>
             8'b1111_1xxx : controlBits = 3'b000;   // 0 - BB3 : OUT <pn>
-            endcase
-        end
-    endmodule
+        endcase
+    end
+endmodule

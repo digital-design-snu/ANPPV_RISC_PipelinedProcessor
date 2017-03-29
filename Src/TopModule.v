@@ -94,7 +94,8 @@ wire    SOD_CCG3;                               // CCG3.SOD to ALU.SOD
 wire    XR0_CCG3;                               // CCG3.XR0 to ALU.XR0
 
 wire WR_CCG3_CCG4;                              // CCG2.WR
-
+wire CCG3_CCG4_XRN;                             // CCG3.XR0 to CCG4.XR0
+wire CCG3_CCG4_ISP;                             // CCG3.ISP to CCG4.ISP
 /*hardcoded wires end*/
 
 assign  led [7:0] = PCBuffer2_Out;
@@ -237,7 +238,7 @@ ControlCodeGenerator2 CCG2(
     .SODCCG1(CCG1_BubbleXSOD),                  // Input  :: (ControlCodeGenerator1Async,.XSOD)
     .ESPCCG1(CCG1_BubbleX)                      // Input  :: (ControlCodeGenerator1Async,.X2SP)
 );      
-        
+
 ControlCodeGenerator3 CCG3(                                                                 
     //.BB3(BB3),                                // Output :: (Bubble,.BB3)
     .clk(clk),                                  // GLOBAL Clk
@@ -254,9 +255,14 @@ ControlCodeGenerator3 CCG3(
     .XR0(XR0_CCG3),                             // Output :: (ALUModule,.XR0) 
     .XR0_CCG2(XR0),                             // Input  :: (ControlCodeGenerator2,.XR0)
     .WRCCG2(CCG2_BubbleXWR),                    // Input  :: (ControlCodeGenerator2,.XWR)
+    .XRNCCG2(XRN),                              // Input  :: (ControlCodeGenerator2,.XRN)
+    .RN(CCG3_CCG4_XRN),                         // Output :: (ControlCodeGenerator3,.XRN)
+    .ISPCCG2(ISP),                              // Input  :: (ControlCodeGenerator2,.ISP)
+    .ISP(CCG3_CCG4_ISP),                        // Output :: (ControlCodeGenerator3,.ISP)
     .WR(WR_CCG3_CCG4)                           // Output :: (ControlCodeGenerator4,.WRCCG3)
 );       
-        
+
+
 ControlCodeGenerator4 CCG4(                     
     .clk(clk),                                  // Input  :: GLOBAL Clk 
     .DSP_out(DSP),                              // Output :: (StackPointer,.DSP) :: (WBModule,.DSP) :: (AddressSelector2,.DSP)
@@ -269,7 +275,11 @@ ControlCodeGenerator4 CCG4(
     .opcode(OpcodeBuffer2_Out),                 // Intput :: (Buffer2 , .OpcodeBufferOut)                                                           
     .WR(WR),                                    // Output :: (MultiPortMem ,.writeEn)                                                               
     .FL(FlagReg_Out),                           // Input  :: (FlagRegister,.FL)
-    .WRCCG3(WR_CCG3_CCG4)                       // Input  :: (ControlCodeGenerator3,.WRCCG3)    
+    .WRCCG3(WR_CCG3_CCG4),                      // Input  :: (ControlCodeGenerator3,.WRCCG3)
+    .XRNCCG3(CCG3_CCG4_XRN),                    // Input  :: (ControlCodeGenerator3,.XRN)
+    .XR0CCG3(XR0_CCG3),                         // Input  :: (ControlCodeGenerator3,.XR0)
+    .ERNCCG3(ERN_CCG3),                         // Input  :: (ControlCodeGenerator3,.ERN)
+    .ISPCCG3(CCG3_CCG4_ISP)                     // Input  :: (ControlCodeGenerator3,.ISP)
 );              
     
     

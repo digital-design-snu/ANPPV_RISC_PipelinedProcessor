@@ -5,10 +5,11 @@ module ControlCodeGenerator4(
     input           FL,         // Selected Flag
     input   [7:0]   opcode,     // From Buffer 34 Opcode Buffer
     input           WRCCG3,
-    input           XRNCCG3;
-    input           XR0CCG3;
-    input           ERNCCG3;
-    input           ISPCCG3;
+    input           XRNCCG3,
+    input           XR0CCG3,
+    input           ERNCCG3,
+    input           ISPCCG3,
+    input           EFLCCG3,
     //output          FLRN,     // DELETE  - UNUSED  // FLRN ? :: This signal is not being used any where
     output          WR,         // WR :: Write To Memory
     output  reg     LRN,        // Load RN
@@ -17,9 +18,9 @@ module ControlCodeGenerator4(
     output          DSP_out,    // Pass Through SP -1 as the output of the stack pointer 
     output          LOP,        // Load Output registers
     output  reg     ERN,        // Enable RN for Write Back
-    );
-    wire DSP,ISP,WR_out;
-    reg FL_out;
+);
+    wire DSP,WR_out;
+    reg FL_out,EFL_carryIn;
     reg ISP;
     reg WR_reg;
     assign WR_out = WRCCG3;
@@ -29,16 +30,19 @@ module ControlCodeGenerator4(
         ERN = 0;
         LRN = 0;
         LR0 = 0;
+        ISP = 0;
+        EFL_carryIn = 0;
     end
 
 
     always@(posedge clk)
     begin
+        EFL_carryIn = EFLCCG3;
         ISP=ISPCCG3; 
         FL_out=FL;
         WR_reg = WRCCG3;
-        RN = XRNCCG3;
-        R0 = XR0CCG3;
+        LRN = XRNCCG3;
+        LR0 = XR0CCG3;
         ERN = ERNCCG3;
     end
         

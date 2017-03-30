@@ -279,7 +279,8 @@ ControlCodeGenerator4 CCG4(
     .XRNCCG3(CCG3_CCG4_XRN),                    // Input  :: (ControlCodeGenerator3,.XRN)
     .XR0CCG3(XR0_CCG3),                         // Input  :: (ControlCodeGenerator3,.XR0)
     .ERNCCG3(ERN_CCG3),                         // Input  :: (ControlCodeGenerator3,.ERN)
-    .ISPCCG3(CCG3_CCG4_ISP)                     // Input  :: (ControlCodeGenerator3,.ISP)
+    .ISPCCG3(CCG3_CCG4_ISP),                    // Input  :: (ControlCodeGenerator3,.ISP)
+    .EFLCCG3(EFL)                               // Input  :: (ControlCodeGenerator3,.EFL)
 );              
     
     

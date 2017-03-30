@@ -17,7 +17,7 @@ module ControlCodeGenerator4(
     output          LSP,        // Load SP
     output          DSP_out,    // Pass Through SP -1 as the output of the stack pointer 
     output          LOP,        // Load Output registers
-    output  reg     ERN,        // Enable RN for Write Back
+    output  reg     ERN        // Enable RN for Write Back
 );
     wire DSP,WR_out;
     reg FL_out,EFL_carryIn;

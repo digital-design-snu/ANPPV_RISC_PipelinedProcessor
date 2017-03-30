@@ -5,10 +5,10 @@ module ControlCodeGenerator4(
     input           FL,         // Selected Flag
     input   [7:0]   opcode,     // From Buffer 34 Opcode Buffer
     input           WRCCG3,
-    input           XRNCCG3;
-    input           XR0CCG3;
-    input           ERNCCG3;
-    input           ISPCCG3;
+    input           XRNCCG3,
+    input           XR0CCG3,
+    input           ERNCCG3,
+    input           ISPCCG3,
     //output          FLRN,     // DELETE  - UNUSED  // FLRN ? :: This signal is not being used any where
     output          WR,         // WR :: Write To Memory
     output  reg     LRN,        // Load RN
@@ -16,9 +16,9 @@ module ControlCodeGenerator4(
     output          LSP,        // Load SP
     output          DSP_out,    // Pass Through SP -1 as the output of the stack pointer 
     output          LOP,        // Load Output registers
-    output  reg     ERN,        // Enable RN for Write Back
+    output  reg     ERN        // Enable RN for Write Back
     );
-    wire DSP,ISP,WR_out;
+    wire DSP,WR_out;
     reg FL_out;
     reg ISP;
     reg WR_reg;
@@ -29,6 +29,7 @@ module ControlCodeGenerator4(
         ERN = 0;
         LRN = 0;
         LR0 = 0;
+        ISP = 0;
     end
 
 
@@ -37,12 +38,12 @@ module ControlCodeGenerator4(
         ISP=ISPCCG3; 
         FL_out=FL;
         WR_reg = WRCCG3;
-        RN = XRNCCG3;
-        R0 = XR0CCG3;
+        LRN = XRNCCG3;
+        LR0 = XR0CCG3;
         ERN = ERNCCG3;
     end
         
-    reg [8:0] controlBits; // 9-8 FLRN
+    reg [3:0] controlBits; // 9-8 FLRN
     
     // assign {/*WR_out,*//*FLRN,*//*LRN,LR0,*/LSP,DSP,LOP/*,ERN*/,EFL/*,ISP*/} = controlBits;
     assign {LSP,DSP,LOP,EFL} = controlBits;
@@ -107,8 +108,6 @@ module ControlCodeGenerator4(
             8'b1110_1xxx : controlBits = 4'b0000;   // 1 - FLRN XRI <rn><od>
             8'b1111_0xxx : controlBits = 4'b0000;   // 0 - FLRN INA <pn>
             8'b1111_1xxx : controlBits = 4'b0010;   // 0 - FLRN OUT <pn>
-        
-        
         endcase
     end
     

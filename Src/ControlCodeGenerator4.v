@@ -111,8 +111,6 @@ module ControlCodeGenerator4(
             8'b1110_1xxx : controlBits = 4'b0000;   // 1 - FLRN XRI <rn><od>
             8'b1111_0xxx : controlBits = 4'b0000;   // 0 - FLRN INA <pn>
             8'b1111_1xxx : controlBits = 4'b0010;   // 0 - FLRN OUT <pn>
-        
-        
         endcase
     end
     

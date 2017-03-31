@@ -24,7 +24,7 @@ module ControlCodeGenerator2(
         output          XWR     //WR from 4th stage
     );
     
-    reg [11:0] controlBits; // 13-12 EFL 14-13 LSP
+    reg [9:0] controlBits; // 13-12 EFL 14-13 LSP
     wire[7:0] opcodeBubble;
     
     assign opcodeBubble = (BB)?8'h00:opcode;

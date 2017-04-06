@@ -1048,7 +1048,7 @@
         blockMem[252] = 8'h9a;  //SBI<rn><od>
         blockMem[253] = 8'hef;  //XRI<rn><od>
         blockMem[254] = 8'h7c;  //POP<rn>
-        blockMem[255] = 8'h01; //CLR
+        blockMem[255] = 8'h01;  //CLR
 
     /*
          blockMem[0]  = 8'h01;

@@ -32,6 +32,7 @@ module ControlCodeGenerator4(
         LR0 = 0;
         ISP = 0;
         EFL_carryIn = 0;
+        WR_reg = 0;
     end
 
 

@@ -15,7 +15,7 @@ module RegisterArray(
 	output      [15:0]       RN_Out      //Value of RN is stored in the register
 	);
 
-	reg 		[15:0]		Reg_Array	[15:0];
+	reg 		[15:0]		Reg_Array	[7:0];
 	
 	initial
 	begin
@@ -27,14 +27,6 @@ module RegisterArray(
 		Reg_Array[5] = 5;
 		Reg_Array[6] = 6;
 		Reg_Array[7] = 7;
-        Reg_Array[8] = 8;
-		Reg_Array[9] = 9;
-		Reg_Array[10] = 2;
-		Reg_Array[11] = 3;
-		Reg_Array[12] = 4;
-		Reg_Array[13] = 5;
-		Reg_Array[14] = 6;
-		Reg_Array[15] = 7;
 	end
 	assign R0_Out = Reg_Array[0];
     assign RN_Out = Reg_Array[RD_RegSel];
@@ -50,14 +42,6 @@ begin
        Reg_Array[5] = 0; 
        Reg_Array[6] = 0; 
        Reg_Array[7] = 0;
-       Reg_Array[8] = 0; 
-       Reg_Array[9] = 0; 
-       Reg_Array[10] = 0; 
-       Reg_Array[11] = 0; 
-       Reg_Array[12] = 0; 
-       Reg_Array[13] = 0; 
-       Reg_Array[14] = 0; 
-       Reg_Array[15] = 0; 
     end 
    	else if (L_R0)
 	begin

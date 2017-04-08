@@ -7,7 +7,11 @@ module TopModule(
 );
 
 // Clock Multiplier
-wire sclk = clk ;
+//reg sclk;
+wire sclk = clk;
+//always @ (posedge clk) sclk = sclk + 1;
+
+
 //clk_wiz_0 CMul( .clk_in1(clk),   .clk_out1(sclk));
 //Clock Multiplier End
 
@@ -406,7 +410,7 @@ RegisterArray       RegArr      (
 Io_GPIB IO(     
     .Clk(sclk),                                  // Input    :: Global Clock
     .Eip(EIP),                                  // Inout    :: (ControlCodeGenerator2, .EIP)
-    .io0(led[15:8]),                            // Output   :: Global Output
+    .io0(),                            // Output   :: Global Output
     .io0I(sw[7:0]),                             // Input    :: Global Input
     .io1(),                                     // Output   :: Unused
     .io1I(),                                    // Input    :: Unused

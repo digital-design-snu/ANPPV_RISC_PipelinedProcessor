@@ -6,28 +6,28 @@ module Io_GPIB(
     input           Clk,          // Global Clock
     input   [2:0]   ioSel_RD,     // <Pn> Port Select Input :: Stage 2 :: Stage 2 opcode Bfr
     input   [2:0]   ioSel_WB,     // <Pn> Port Select Output:: Stage 4 :: Stage 4 opcode Bfr
-    output  [7:0]   io0,          // Output Port 0
-    output  [7:0]   io1,          // Output Port 1
-    output  [7:0]   io2,          // Output Port 2
-    output  [7:0]   io3,          // Output Port 3
-    output  [7:0]   io4,          // Output Port 4
-    output  [7:0]   io5,          // Output Port 5
-    output  [7:0]   io6,          // Output Port 6
-    output  [7:0]   io7,          // Output Port 7
-    input   [7:0]   io0I,         // Input Port 0
-    input   [7:0]   io1I,         // Input Port 1
-    input   [7:0]   io2I,         // Input Port 2
-    input   [7:0]   io3I,         // Input Port 3
-    input   [7:0]   io4I,         // Input Port 4
-    input   [7:0]   io5I,         // Input Port 5
-    input   [7:0]   io6I,         // Input Port 6
-    input   [7:0]   io7I,         // Input Port 7
-    input   [7:0]   WriteOutputs, // Data Input From Write Back Stage
-    output  [7:0]   ReadInputs    // Data Output Path to the Operand Decode Stage
+    output  [15:0]   io0,          // Output Port 0
+    output  [15:0]   io1,          // Output Port 1
+    output  [15:0]   io2,          // Output Port 2
+    output  [15:0]   io3,          // Output Port 3
+    output  [15:0]   io4,          // Output Port 4
+    output  [15:0]   io5,          // Output Port 5
+    output  [15:0]   io6,          // Output Port 6
+    output  [15:0]   io7,          // Output Port 7
+    input   [15:0]   io0I,         // Input Port 0
+    input   [15:0]   io1I,         // Input Port 1
+    input   [15:0]   io2I,         // Input Port 2
+    input   [15:0]   io3I,         // Input Port 3
+    input   [15:0]   io4I,         // Input Port 4
+    input   [15:0]   io5I,         // Input Port 5
+    input   [15:0]   io6I,         // Input Port 6
+    input   [15:0]   io7I,         // Input Port 7
+    input   [15:0]   WriteOutputs, // Data Input From Write Back Stage
+    output  [15:0]   ReadInputs    // Data Output Path to the Operand Decode Stage
     );
     
     
-    reg [7:0] outRegs [7:0];
+    reg [15:0] outRegs [7:0];
     initial begin
         outRegs[0] = 0 ;
         outRegs[1] = 0 ;
@@ -60,6 +60,6 @@ module Io_GPIB(
                             (ioSel_RD == 3'b100 & (Eip ) )?      io4I    : (
                             (ioSel_RD == 3'b101 & (Eip ) )?      io5I    : (
                             (ioSel_RD == 3'b110 & (Eip ) )?      io6I    : (       
-                            (ioSel_RD == 3'b111 & (Eip ) )?      io7I    : 8'hzz )))))));
+                            (ioSel_RD == 3'b111 & (Eip ) )?      io7I    : 16'hzz )))))));
                             
 endmodule

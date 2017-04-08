@@ -795,8 +795,13 @@
     blockMem[253] = 8'h15;  //MVD<rn>
     blockMem[254] = 8'h7c;  //POP<rn>
     blockMem[255] = 8'h01; //CLR
+<<<<<<< HEAD
     */  /*  
         blockMem[0] = 8'h01;  //CLR
+=======
+    */    
+        /*blockMem[0] = 8'h01;  //CLR
+>>>>>>> e083d40d6961653dcdb4f46b0cb8c2cea20102bd
         blockMem[1] = 8'h1f;  //MVS<rn>
         blockMem[2] = 8'h62;  //STA<rn>
         blockMem[3] = 8'h9c;  //SBI<rn><od>

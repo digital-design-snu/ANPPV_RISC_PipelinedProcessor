@@ -5,8 +5,8 @@ module IR(
     input       [15:0]   memIR   //input from memory :: memory address taken from PC
     );
     initial 
-        IROut = 8'h00;
-        
-    always @(memIR) IROut = memIR[7:0]; 
-    
+        IROut = 0;
+
+    always @(memIR) IROut = memIR[7:0];
+
 endmodule

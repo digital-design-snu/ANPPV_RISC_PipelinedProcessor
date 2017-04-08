@@ -7,9 +7,8 @@ module TopModule(
 );
 
 // Clock Multiplier
-wire scllk;
-clk_wiz_0 CMul( .clk_in1(clk),
-                .clk_out1(sclk));
+wire sclk = clk ;
+//clk_wiz_0 CMul( .clk_in1(clk),   .clk_out1(sclk));
 //Clock Multiplier End
 
 /*Control Code Wire Instantiations start*/

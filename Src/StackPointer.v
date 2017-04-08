@@ -11,21 +11,21 @@ module StackPointer(
     //ESP is not required here. only issued by the CCG to some select logic
     /*******************END COMMENT**********************************************/
     
-    input   [7:0]   SPIn,   // SP Input LOAD Address :: Address to be written into SP :: FROM Buffer3_2
+    input   [15:0]   SPIn,   // SP Input LOAD Address :: Address to be written into SP :: FROM Buffer3_2
     /*******************END INPUTS PORTS*****************************************/
     
     /*******************OUTPUT PORTS*********************************************/
-    output  [7:0]   SPOut   // SP Output :: Final Output Address of SP Module :: TO ALUmux, AS2 and AS
+    output  [15:0]   SPOut   // SP Output :: Final Output Address of SP Module :: TO ALUmux, AS2 and AS
     /*******************END OUTPUT PORTS*****************************************/
     );
     
     /***************REGISTERS***************************/
-    reg [7:0] SPReg;        // SP Register :: Contains SP Address
+    reg [15:0] SPReg;        // SP Register :: Contains SP Address
     /***************END REGISTERS***********************/
     
     /***************INITIALISATION**********************/
     initial
-        SPReg = 8'h00;      // SPReg initialised to 0x00
+        SPReg = 16'h00;      // SPReg initialised to 0x00
     /***************END INITIALISATION*****************/
     
     assign SPOut = DSP?(SPReg-1):(LSP? SPIn :SPReg);    // Select SPOut based on DSP and LSP :: The Line Below Acomodate value pass throughs

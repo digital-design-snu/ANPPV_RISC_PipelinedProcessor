@@ -4,25 +4,25 @@
 
 module Buffer2(
     input           clk,
-    input   [7:0]   PC,                 // PC from buffer 1 output
-    input   [7:0]   OperandDecode1,     // output from OD1
-    input   [7:0]   OperandDecode2,     // output from OD2
+    input   [15:0]   PC,                 // PC from buffer 1 output
+    input   [15:0]   OperandDecode1,     // output from OD1
+    input   [15:0]   OperandDecode2,     // output from OD2
     input   [7:0]   Opcode,             // opcode from buffer 1 output
-    output  [7:0]   Buffer21Out,        // Outputing Result of OD1 into stage 3
-    output  [7:0]   Buffer22Out,        // Outputing Result of OD2 into stage 3
+    output  [15:0]   Buffer21Out,        // Outputing Result of OD1 into stage 3
+    output  [15:0]   Buffer22Out,        // Outputing Result of OD2 into stage 3
     output  [7:0]   OpcodeBufferOut,    // Outputing Opcode of instruction going to stage 3 into stage 3
-    output  [7:0]   PCBufferOut2        // Outputing (PC+1)? of instruction going to stage 3 into stage 3         
+    output  [15:0]   PCBufferOut2        // Outputing (PC+1)? of instruction going to stage 3 into stage 3         
     );
-    reg [7:0] Buffer21;
-    reg [7:0] Buffer22;
+    reg [15:0] Buffer21;
+    reg [15:0] Buffer22;
     reg [7:0] OpcodeBuffer;
-    reg [7:0] PCBuffer2;     
+    reg [15:0] PCBuffer2;     
     
     initial begin
-        Buffer21 = 8'h00;     
-        Buffer22 = 8'h00;     
-        OpcodeBuffer = 8'h00; 
-        PCBuffer2 = 8'h00;     
+        Buffer21 = 0;     
+        Buffer22 = 0;     
+        OpcodeBuffer = 0; 
+        PCBuffer2 = 0;     
     end
     always @(posedge clk)
     begin

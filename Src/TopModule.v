@@ -6,6 +6,10 @@ module TopModule(
     output [15:0] led                           // LED on FPGA
 );
 
+// Clock Multiplier
+wire sclk = clk ;
+//clk_wiz_0 CMul( .clk_in1(clk),   .clk_out1(sclk));
+//Clock Multiplier End
 
 /*Control Code Wire Instantiations start*/
 
@@ -166,7 +170,7 @@ Bubble  Bbl(
 
 Buffer1             Buf12(
     .BB(BB),                                    // Input    :: (Bubble, .BB)
-    .clk(clk),                                  // Input    :: Global Clock
+    .clk(sclk),                                  // Input    :: Global Clock
     .IR(IR_Out),                                // Input    :: (IR, .IROut)
     .OpcodeBuffer1Out(OpcodeBuffer1_Out),       // Output   :: (Bubble, .ST2OP)     :: (Buffer2, .Opcode)   :: (CCG3, .opcode)  :: (OD2, .OpcodeCCG2)   :: (RegisterFlags, .rn2)    :: (RegisterArray, .RD_RegSel)  :: (Io_GPIB, .ioSel_RD)
     .PC(PC_PCBuffer1),                          // Input    :: (PC, .PCBuffer1)
@@ -176,7 +180,7 @@ Buffer1             Buf12(
 Buffer2           Buf23(
     .Buffer21Out(Buffer21_Out),                 // Output   :: (Alu, .Buffer21)     :: (CndBr, .Buffer21)
     .Buffer22Out(Buffer22_ALUModule),           // Output   :: (Alu, .Buffer22)
-    .clk(clk),                                  // Input    :: Global Clock
+    .clk(sclk),                                  // Input    :: Global Clock
     .Opcode(OpcodeBuffer1_Out),                 // Input    :: (Buffer1, .OpcodeBuffer1Out)
     .OpcodeBufferOut(OpcodeBuffer2_Out),        // Output   :: (Buffer3, .OpcodeBuffer2)    :: (CCG4, .opcode) :: (FlagRegister, .opCode)   :: (OD1, .OpcodeCCG2)   :: (RegisterFlags, .rn3)    :: (Alu, .S_AF)     :: (As1, .OpcodeCCG2) 
     .OperandDecode1(OperandDecode1_Buffer21),   // Input    :: (OD1, .Operand1)
@@ -188,7 +192,7 @@ Buffer2           Buf23(
 Buffer3             Buf34(
     .ALUBuffer3Out(Buffer31_WB),                // output   ::  (WB,.Buffer3)       :: This wire is also called OF_AS1,OF_OperandDecode1, OF_OperandDecode2, OFALU_ALUModule
     .ALUOut(ALUModule_Buffer31),                // input    ::  (Alu,.AluOut)
-    .clk(clk),                                  // input    ::  (Global Clock)
+    .clk(sclk),                                  // input    ::  (Global Clock)
     .OpcodeBuffer2(OpcodeBuffer2_Out),          // input    ::  (Buf23,.OpcodeBufferOut)
     .OpcodeBuffer3Out(OpcodeBuffer3_Out),       // output   ::  (IO,.ioSel_WB)(RegArr,.WB_RegSel)(RegFl,.rnInput)(OprDc2,.OpcodeCCG4)(OprDc1,.OpcodeCCG4)(Buf34,.OpcodeBuffer3Out)(As1,.OpcodeCCG4)(Alu,.OpcodeCCG4)
     .PCBuffer2(PCBuffer2_Out),                  // input    ::  (Buf23,.PCBufferOut2)
@@ -217,7 +221,7 @@ ControlCodeGenerator1Async CCGA1(
     
 ControlCodeGenerator2 CCG2(                 
     .BB2(BB2),                                  // Output :: (Bubble,.BB2)
-    .clk(clk),                                  // Input  :: GLOBAL Clk
+    .clk(sclk),                                  // Input  :: GLOBAL Clk
     .BB(BB),                                    // Input  :: (Bubble,.BB)
     //.EFL(EFL2),                               // Output :: (ProgramCounter,.EFL2)
     .EIP(EIP),                                  // Output :: (OperandDecode1,.E_IP) :: (IO_GPIB,Eip)
@@ -241,7 +245,7 @@ ControlCodeGenerator2 CCG2(
 
 ControlCodeGenerator3 CCG3(                                                                 
     //.BB3(BB3),                                // Output :: (Bubble,.BB3)
-    .clk(clk),                                  // GLOBAL Clk
+    .clk(sclk),                                  // GLOBAL Clk
     .SOD_CCG2(SOD),                             // Input  :: (ControlCodeGenerator2,.SOD)
     .SOD(SOD_CCG3),                             // Output :: (ALUModule,.SOD)
     .E_R0(ER0_CCG3),                            // Output :: (ALUModule,.ER0)
@@ -264,7 +268,7 @@ ControlCodeGenerator3 CCG3(
 
 
 ControlCodeGenerator4 CCG4(                     
-    .clk(clk),                                  // Input  :: GLOBAL Clk 
+    .clk(sclk),                                  // Input  :: GLOBAL Clk 
     .DSP_out(DSP),                              // Output :: (StackPointer,.DSP) :: (WBModule,.DSP) :: (AddressSelector2,.DSP)
     .ERN(ERNCCG4),                              // Output :: (WBModule,.ERN)                                                    
     //.FLRN(FLRN),                              // Output :: NOT MAPPED USELESS                                             
@@ -287,7 +291,7 @@ ControlCodeGenerator4 CCG4(
     
 FlagRegister    FlReg(  
     .carry(FlagReg_Carry_ALUModule),            // Output   :: (ALUModule, .Cin)
-    .clk(clk),                                  // Input    :: Global Clock
+    .clk(sclk),                                  // Input    :: Global Clock
     .FL(FlagReg_Out),                           // Output   :: (ConditionalBranch, .FL) :: (ControlCodeGenerator4, .FL)
     .inArray(ALUModule_FlagReg),                // Input    :: (ALUModule, .flagArray)
     .opCode(OpcodeBuffer2_Out[2:0]),            // Input    :: (Buffer2, .OpcodeBufferOut)
@@ -306,7 +310,7 @@ MultiPortMem    MultPrtMem(
     .addressInst(PC_Mem1),                      // Input    ::  (ProgramCounter, .toAS)
     .addressOper(AS1_Mem2),                     // Input    ::  (AddressSelector1, .addressOut)
     .addressWb(AS2_Mem3),                       // Input    ::  (AddressSelector2, .addressOut)
-    .clk(clk),                                  // Input    ::  Global Clock
+    .clk(sclk),                                  // Input    ::  Global Clock
     .dataInst(Mem1_IR),                         // Output   ::  (IR, .memIR)
     .dataOper(Mem2_OperandDecode1),             // Output   ::  (OperandDecode1, .MEM_OpData)
     .dataWb(Output),                            // Input    ::  (WBModule, .WB)
@@ -350,7 +354,7 @@ OperandDecode2   OprDc2(
     
 ProgramCounter   PrgCtr(    
     .BB(BB),                                    //  Input   ::  (Bubble, .BB)
-    .clk(clk),                                  //  Input   ::  Global Clock
+    .clk(sclk),                                  //  Input   ::  Global Clock
     .CondBranch(ConditionalBranch_Branch),      //  Input   ::  (ConditionalBranch, .BrOut)
     .DIPC(DIPC),                                //  Input   ::  (ControlCodeGenerator1Async, .DIPC)
     .EFL(EFL),                                  //  Input   ::  (ControlCodeGenerator3, .EFL)
@@ -365,7 +369,7 @@ ProgramCounter   PrgCtr(
 
 
 StackPointer      StkPtr(
-    .clk(clk),                                  //  Input   ::  Global Clock     
+    .clk(sclk),                                  //  Input   ::  Global Clock     
     .DSP(DSP),                                  //  Input   ::  (ControlCodeGenerator4, .DSP_out)
     .ISP(ISP),                                  //  Input   ::  (ControlCodeGenerator2, .ISP)
     .LSP(LSP),                                  //  Input   ::  (ControlCodeGenerator4,.LSP)
@@ -374,7 +378,7 @@ StackPointer      StkPtr(
 );                                              //ESP is not required here. only issued by the CCG to some select logic
         
 RegisterFlags RegFl(        
-    .clk(clk),                                  // Input    ::  Global Clock
+    .clk(sclk),                                  // Input    ::  Global Clock
     .flagOut2(RegFL_FLRN2),                     // Output   ::  (AddressSelector1, .FLRN) :: (OperandDecode1, .FLRN) :: (OperandDecode2, .FLRN)
     .flagOut3(RegFL_FLRN3),                     // Output   ::  (ALUModule, .FLRN)
     .FLR0(FLR0),                                // Input    ::  (ControlCodeGenerator2, .FLR0)
@@ -386,7 +390,7 @@ RegisterFlags RegFl(
 );      
         
 RegisterArray       RegArr      (       
-    .clk(clk),                                  // Input    ::  Global Clock
+    .clk(sclk),                                  // Input    ::  Global Clock
     .E_R0(ER0),                                 // Input    ::  (ControlCodeGenerator2,.ER0)
     .E_RN(ERN),                                 // Input    ::  (ControlCodeGenerator2,.ERN)
     .L_R0(LR0),                                 // Input    ::  (ControlCodeGenerator4,.LR0)
@@ -399,7 +403,7 @@ RegisterArray       RegArr      (
 );      
         
 Io_GPIB IO(     
-    .Clk(clk),                                  // Input    :: Global Clock
+    .Clk(sclk),                                  // Input    :: Global Clock
     .Eip(EIP),                                  // Inout    :: (ControlCodeGenerator2, .EIP)
     .io0(led[15:8]),                            // Output   :: Global Output
     .io0I(sw[7:0]),                             // Input    :: Global Input

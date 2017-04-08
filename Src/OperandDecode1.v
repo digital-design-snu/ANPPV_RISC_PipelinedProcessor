@@ -3,12 +3,12 @@
 //CHANGE FILE NAME TO OperandDecode1.v
 
 module OperandDecode1(
-    output          [7:0]       Operand1,       // Output of OD1
-    input 	     	[7:0] 		OF_OD1,         // Operand Forwarded value.
-    input           [7:0]       R0_Out,         // input R0 value
-    input           [7:0]       MEM_OpData,     // OD from Memory
-    input           [7:0]       stackPointer,   // input from Stack Pointer, value at address of Stack
-    input           [7:0]       readInIO,       // from IO?
+    output          [15:0]       Operand1,       // Output of OD1
+    input 	     	[15:0] 		OF_OD1,         // Operand Forwarded value.
+    input           [15:0]       R0_Out,         // input R0 value
+    input           [15:0]       MEM_OpData,     // OD from Memory
+    input           [15:0]       stackPointer,   // input from Stack Pointer, value at address of Stack
+    input           [15:0]       readInIO,       // from IO?
     input           [2:0]       OpcodeCCG2,     // Last 3 bits of instruction currently in CCG2
     input           [2:0]       OpcodeCCG4,     // Last 3 bits of instruction currently in CCG4
     input                       E_R0,           // from CCG2

@@ -11,9 +11,10 @@ module Bubble(
     input       X2SP,   // ISP|LSP From the 4th Stage
     input       X4SP,   // LSP 
     input       XSOD,   // Select OD CCG1
-    input       XWR,    // WR CCG1 
+    input       XWR_CCG2,    // WR CCG2 
+    input       XWR_CCG3,   // WR CCG3  
     input [2:0] ST2OP,  // Stage 2 Opcode       
     output      BB
     );
-    assign BB = (BB2 || BB3 || (XR0 && ER0)||((ST2OP == 3'b000)&& ER0 && XRN) || (X2SP&&X4SP) ||(XSOD&&XWR&&(ESP||ER0)));/*+(ESP&&LSP) + (DSP&&ISP) + (ISP&&LSP) + (DSP&&ESP)*/
+    assign BB = (BB2 || BB3 || (XR0 && ER0)||((ST2OP == 3'b000)&& ER0 && XRN) || (XSOD&&XWR_CCG3) || (X2SP&&X4SP) ||(XSOD&&XWR_CCG2&&(ESP||ER0)));
 endmodule

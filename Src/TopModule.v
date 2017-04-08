@@ -7,9 +7,9 @@ module TopModule(
 );
 
 // Clock Multiplier
-wire scllk;
-clk_wiz_0 CMul( .clk_in1(clk),
-                .clk_out1(sclk));
+wire sclk = clk;
+//clk_wiz_0 CMul( .clk_in1(clk),
+//                .clk_out1(sclk));
 //Clock Multiplier End
 
 /*Control Code Wire Instantiations start*/
@@ -166,7 +166,8 @@ Bubble  Bbl(
     .XR0(XR0),                                  // input    ::  (CCG2,.XR0)
     .XRN(XRN),                                  // input    ::  (CCG2,.XRN)
     .XSOD(CCG1_BubbleXSOD),                     // input    ::  (CCGA1,.XSOD)
-    .XWR(CCG2_BubbleXWR)                        // input    ::  (CCG2,.XWR)
+    .XWR_CCG2(CCG2_BubbleXWR),                  // input    ::  (CCG2,.XWR)
+    .XWR_CCG3(WR_CCG3_CCG4)                     // input    ::  (CCG3,.WR)
 );
 
 Buffer1             Buf12(
